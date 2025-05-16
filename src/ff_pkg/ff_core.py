@@ -2,8 +2,8 @@
 
 import numpy as np
 import random
-from matrix_util import rbind
-from distance import build_range_trees, brute_distance, range_distance
+from .matrix_util import rbind
+from .distance import build_range_trees, brute_distance, range_distance
 
 def test_statistic(
     M: np.ndarray,

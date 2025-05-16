@@ -1,0 +1,2 @@
+[console_scripts]
+ff-test = ff_pkg.ff_test:main

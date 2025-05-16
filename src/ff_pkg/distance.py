@@ -1,7 +1,7 @@
 import numpy as np
 import itertools
-from matrix_util import get_row
-from range_tree import RangeTree
+from .matrix_util import get_row
+from .range_tree import RangeTree
 
 def build_range_trees(M: np.ndarray, r1: int, r2: int, s: list[int]):
     pts1 = [get_row(M, s[i]) for i in range(r1)]
