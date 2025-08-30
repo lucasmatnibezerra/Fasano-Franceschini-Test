@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "FFWIN: Fasano–Franceschini Window for Multivariate Concept Drift Detection"
+authors:
+  - family-names: Matni Bezerra
+    given-names: Lucas
+    orcid: "https://orcid.org/0009-0009-6039-6995" 
+version: 1.0.0
+abstract: >
+  FFWIN is a Python implementation of the Fasano–Franceschini Window method, 
+  an input-based, unsupervised multivariate concept drift detector based on 
+  the Fasano–Franceschini statistical test. It enables detecting complex 
+  structural changes in multivariate data streams, including correlation and 
+  covariance drifts, through a sliding-window architecture with statistical 
+  significance estimation via permutation testing.
+repository-code: "https://github.com/lucasmatnibezerra/Fasano-Franceschini-Test"
+license: MIT
+keywords:
+  - concept drift
+  - unsupervised learning
+  - multivariate statistics
+  - permutation test
+  - sliding window
+  - fasano-franceschini
+identifiers:
+  - type: url
+    value: "https://github.com/lucasmatnibezerra/Fasano-Franceschini-Test"
+date-released: 2025-08-29
