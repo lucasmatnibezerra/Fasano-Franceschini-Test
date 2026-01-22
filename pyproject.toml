@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ffwin"
+version = "0.1.0"
+description = "Fasano–Franceschini Windowing (FFWIN): unsupervised concept drift detection with sliding windows"
+authors = [{ name = "FFWIN contributors" }]
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["concept drift", "unsupervised", "change detection", "Fasano-Franceschini", "sliding window"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "numpy>=1.23",
+  "joblib>=1.2",
+  "numba>=0.58",
+  "scikit-learn>=1.2",
+  "pandas>=2.0",
+  "tqdm>=4.64",
+  "Rtree>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/ffwin"
+Issues = "https://github.com/your-org/ffwin/issues"
+
+[tool.setuptools]
+packages = ["ffwin"]
+
+[tool.setuptools.package-data]
+ffwin = []

@@ -1,0 +1,7 @@
+numpy>=1.23
+joblib>=1.2
+# Optional
+# scikit-learn>=1.2  # for PCA
+# Rtree>=1.0.0       # for range-tree backend
+# pandas>=2.0        # for CLI/pipeline helpers
+# tqdm>=4.64         # for permutation progress bars

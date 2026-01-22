@@ -1,90 +1,136 @@
-# Fasano-Franceschini Test Documentation
+Fasano-Franceschini Test Documentation
 
-This document presents the *Python implementation* of the multivariate Kolmogorov–Smirnov test, known as the **Fasano & Franceschini** test, based on the original papers and the R implementation by Puritz, Ness-Cohn & Braun (2023).
+Este repositório apresenta uma implementação Python do teste multivariado de Kolmogorov–Smirnov, conhecido como teste de **Fasano & Franceschini (FF)**, e um detector de drift baseado em janelas deslizantes (FFWIN).
 
 <img src="src\figures\fasano-logo.png" alt="Fasano & Franceschini Logo" width="200" align="right"/>
 
 ---
+
 ## 1. Overview
 
-The Fasano-Franceschini (FF) test is a multivariate generalization of the Kolmogorov–Smirnov test for comparing two independent samples of arbitrary size and assessing whether they are drawn from the same distribution. It is especially useful in high dimension, where univariate tests may not capture cyclical differences.
+O teste FF generaliza o KS para várias dimensões, comparando duas amostras independentes (de tamanhos arbitrários) e avaliando se provêm da mesma distribuição. É útil em alta dimensão, onde testes univariados não capturam diferenças multivariadas.
 
-- **Code author**: Lucas Matni Bezerra
-- **Original method**: [Fasano & Franceschini (1987)](https://watermark.silverchair.com/mnras225-0155.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAA1gwggNUBgkqhkiG9w0BBwagggNFMIIDQQIBADCCAzoGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM26FczWrIyxWgBDelAgEQgIIDC1f0kYaduXEC9kFh6jeiLZ1-vjmUCHikTreOLj8thhsI7pABCLUKKt5syshvkzC7jzvTDNlgwKS32dEhdl7Jp6A5iGOnKCrjYhCkukOXOGd9nKVOfHUlPD6M_YK5UqhKbSbOwDhtMUmP83jUc5_x3U2v7rDr-7A1iIma32Ac3TB4QQqox8LnTlvLoy5CIDcIOPa2JcrdPa0OB18ll6CvUI7zQBuKyI6G3SvqoxhN0LJ14SQcbtoY_pILFkrixFPa4eU2OlonVdW-VijoROLOmRTtpi_BtZqj-u_iV3_GWg0zmAfjKsOKJXXHjZq7XkqQ-xiv_F1BoY5K_vI3ypfEY2fR4iUkEyPOKlF6IK8m0c2pkcK-Wnw4BYSk2JGyrR2nHUNtrYu4t829WYAbRNJkgsEtWM7habdNqumheh72cCUA8y_izCdOMdWzSv3brBPahGQHcFbsmBEryAr6OnJtDmQoQJexO8-G0I_Mg1WfISjvwwQehtw2HPWgwJpCVhqU1nZMvZ6sAk-1N4KPzV9HRiWPfXISsRejhcQlhtq8Fh2GSW1LD7c_t_ISBCkKj5Z_dYiu4uPM-2P9ubjX31tF1goeae7zjuEZzXgoWcXbFssqTib7-Do22p06cy5yTmXIibjx6kuUGVZh6zUS_7JGBlHtXs9IVTSsdjCs7KY1HkOUuVUS8-RAYOhZjtwe-s98OkvsxXWYxmYgqa3oEJ-87Wc4C3CjFpcXqKdRt-vZ89yGEjLrl-sqjpkvolD6KKwy4P7NKWgLXVaikwYQ721upSQOrk28MBcel-hIyQnfqlFbeZU5wsn3WQRKbdmcqSjd3WhTSelwbFnePwjTIdTThrczhjhHtxWd8nsQdg4ACNZRIA9K3ZOB35jJFK4DJe9I_QNQQ9IM1xr5V2TR5IntQf9V1Me1Vq_SRmaIB2Hu5B4deF9pAR3kimeUVU2YpRM_x3UbT1Wy4uXZMyglufzxvFSeihMmk7b4pI7OhPFROTpNOsWGz4QWwdUzqis_zeRZ4Y7WUGEPXEI9fqRQ)
-- **Reference R implementation**: [Puritz, C., Ness-Cohn, E. & Braun, R. (2023). *fasano.franceschini.test: An Implementation of a Multivariate KS Test in R*. The R Journal, 15(3), 159–171.](https://journal.r-project.org/articles/RJ-2023-067/#ref-ff1987)
-
+- Code author: Lucas Matni Bezerra
+- Original method: Fasano & Franceschini (1987)
+- Reference R implementation: Puritz, Ness-Cohn & Braun (2023)
 
 ---
 
-## 2. Theoretical Background
+## 2. Theoretical Background (resumo)
 
-1. **Peacock (1983)**: Introduced the D statistic for KS testing in several dimensions, with emphasis on separation by orthogonal hyperplanes. 2. **Fasano & Franceschini (1987)**: Refined the approach, using partitioning into quadrants (or orthants) defined by combined reference points of the two samples.
+1. Peacock (1983): introduz a estatística D para KS multivariado.
+2. Fasano & Franceschini (1987): refinam via partição em ortantes definidos por pontos de referência das duas amostras; a estatística final é \(D = d_1 + d_2\), onde \(d_1\) e \(d_2\) são máximos de diferenças normalizadas de contagens por ortante tomando origens em cada amostra.
+3. Puritz, Ness-Cohn & Braun (2023): implementação eficiente em R que inspira esta versão.
 
-2. **Puritz, Ness-Cohn & Braun (2023)**: Provided an efficient implementation in R, which serves as the basis for the Python version presented here.
+---
 
---- 
 ## 3. Project Structure
 
-The project is organized into modules (inspired bu the implementation in R) that implement the following functionalities:
 ```
 $PROJECT_ROOT
-├── setup.py
 ├── LICENSE
-├── README       
-└── src
-    ├── examples
-        └── script.py       # Example script demonstrating usage of the package with random data in csv format
-    ├── ff_pkg.egg-info
-    └── ff_pkg              # The main package containing the Fasano-Franceschini test implementation
-        ├── __init__.py
-        ├── distance.py     # Functions for calculating distances between points
-        ├── ff_core.py      # Core functions for the Fasano-Franceschini test
-        ├── matrix_util.py  # Utility functions for matrix operations
-        └── range_tree.py   # Implementation of a range tree for efficient querying
+├── README.md
+├── environment.yml          # Ambiente Conda com dependências obrigatórias
+├── pyproject.toml           # Metadados e deps (todas obrigatórias)
+├── ffwin/
+│   ├── __init__.py          # API pública
+│   ├── cli.py               # CLI simples para CSV
+│   ├── dim_reduction.py     # PCA condicional (scikit-learn)
+│   ├── distance.py          # brute_distance (Numba) e range_distance
+│   ├── ff_core.py           # núcleo do teste FF (D, permutações)
+│   ├── matrix_util.py       # utilitários de matriz (rbind)
+│   ├── range_tree.py        # backend Rtree/Numba para contagem em faixas
+│   └── sliding_window.py    # FFWIN: janelas deslizantes + PCA + p-valores
+└── examples/
+    └── smoke.py             # exemplo sintético de uso
 ```
+
+---
 
 ## 4. How to use
 
-To integrate and use the **ff-pkg** package in your Python projects, follow these steps:
+### 4.1 Installation (Conda)
 
-1. **Installation**
+Crie o ambiente e instale o pacote em modo editável:
 
-   In directory of ROOT PROJECT (where is `setup.py` or `pyproject.toml`), run:
-   ```bash
-   git clone https://github.com/lucasmatnibezerra/Fasano-Franceschini-Test.git
-   cd Fasano-Franceschini-Test
-   # Then, install the package using pip:
-   # Installation in edit mode (development)
-   pip install -e .
-   ```
-2. **Import the package**
+```bash
+conda env create -f environment.yml
+conda activate ffwin
+pip install -e .
+```
 
-   In your Python script, import the Fasano-Franceschini test package:
-   ```python
-   from ff_pkg.ff_core import ff_test_statistic
-   from ff_pkg.ff_core import permutation_test, permutation_test_parallel
-   ```
+Obs.: Em Linux, o backend `Rtree` requer `libspatialindex` (o `environment.yml` já inclui `libspatialindex`).
 
-3. **Example usage:**
-   ```python
-   import numpy as np
-   from ff_pkg.ff_core import ff_test_statistic, permutation_test
+### 4.2 Import the package
 
-   # Generate random data
-   X = np.random.randn(100, 3)
-   Y = np.random.randn(100, 3) + 0.5
+```python
+from ffwin.ff_core import ff_test_statistic, permutation_test, permutation_test_parallel
+from ffwin.sliding_window import SlidingWindowFasanoFranceschini
+```
 
-   # D Statistic
-   D = ff_test_statistic(X, Y, method='r')
-   print(f"D = {D}")
+### 4.3 Example usage (FF core)
 
-   # Permutation test (p-value)
-   zg, ze, p = permutation_test(
+```python
+import numpy as np
+from ffwin.ff_core import ff_test_statistic, permutation_test
+
+X = np.random.randn(100, 3)
+Y = np.random.randn(100, 3) + 0.5
+
+# D statistic (range-tree)
+D = ff_test_statistic(X, Y, method='r')
+print(f"D = {D}")
+
+# Permutation test (p-value)
+zg, ze, p = permutation_test(
     X, Y,
     n_permutations=1000,
     method='r',
     seed=42,
-    verbose=True, # You can set verbose=False to suppress the output
-   )
-   print(f"p-value ≈ {p:.4f}")
-   ```
+    verbose=True,
+)
+print(f"p-value ≈ {p:.4f}")
+```
+
+### 4.4 Example usage (FFWIN detector)
+
+```python
+import numpy as np
+from ffwin.sliding_window import SlidingWindowFasanoFranceschini
+
+T, d = 5000, 8
+X = np.random.randn(T, d).astype(np.float32)
+X[2500:] += 0.8
+
+ff = SlidingWindowFasanoFranceschini(
+    window_size=200,
+    step=100,
+    alpha=0.05,
+    n_permutations=50,
+    method='b',
+    pairing='lag_step',
+)
+results = ff.run_parallel(X)
+alarms = [r['start_cur'] for r in results if r['drift']]
+print("alarms:", alarms[:10])
+```
+
+---
+
+## 5. Requirements
+
+- Python >= 3.10
+- Dependências obrigatórias: numpy, joblib, numba, scikit-learn, pandas, tqdm, Rtree, libspatialindex
+
+---
+
+## 6. Notes
+
+- Para alta dimensão (\(d\) grande), use `method='r'` ou ative PCA.
+- `run_parallel` paraleliza janelas; permutações podem ser paralelizadas com `permutation_test_parallel`.
+
+---
+
+## 7. License
+
+MIT

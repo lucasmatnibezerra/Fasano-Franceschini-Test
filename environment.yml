@@ -1,0 +1,15 @@
+name: ffwin
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy>=1.23
+  - joblib>=1.2
+  - numba>=0.58
+  - scikit-learn>=1.2
+  - pandas>=2.0
+  - tqdm>=4.64
+  - rtree>=1.0.0
+  - libspatialindex>=1.9
+  - pip

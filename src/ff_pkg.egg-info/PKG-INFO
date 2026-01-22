@@ -1,23 +1,100 @@
 Metadata-Version: 2.4
-Name: ff-pkg
+Name: ffwin
 Version: 0.1.0
-Summary: Implementação do teste Fasano–Franceschini
-Author: Ian Chow
-Author-email: seu.email@exemplo.com
+Summary: Fasano–Franceschini Windowing (FFWIN): unsupervised concept drift detection with sliding windows
+Author: FFWIN contributors
 License: MIT
+Project-URL: Homepage, https://github.com/your-org/ffwin
+Project-URL: Issues, https://github.com/your-org/ffwin/issues
+Keywords: concept drift,unsupervised,change detection,Fasano-Franceschini,sliding window
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
-Requires-Python: >=3.7
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: numpy>=1.20
-Requires-Dist: rtree
-Requires-Dist: joblib
-Dynamic: author
-Dynamic: author-email
-Dynamic: classifier
-Dynamic: license
+Requires-Dist: numpy>=1.23
+Requires-Dist: joblib>=1.2
+Requires-Dist: numba>=0.58
+Requires-Dist: scikit-learn>=1.2
+Requires-Dist: pandas>=2.0
+Requires-Dist: tqdm>=4.64
+Requires-Dist: Rtree>=1.0.0
 Dynamic: license-file
-Dynamic: requires-dist
-Dynamic: requires-python
-Dynamic: summary
+
+FFWIN — Fasano–Franceschini Windowing
+
+FFWIN detecta drift de conceito de forma não supervisionada aplicando o teste Fasano–Franceschini em janelas deslizantes de um fluxo multivariado.
+
+Requisitos
+- Python >= 3.10
+- Dependências obrigatórias: numpy, joblib, numba, scikit-learn, pandas, tqdm, Rtree
+
+Instalação
+
+Em Linux (Ubuntu/Debian), instale o pré-requisito do Rtree:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y libspatialindex-dev
+```
+
+Depois instale o pacote e todas as dependências (todas são obrigatórias):
+
+```bash
+pip install -U pip
+pip install -e .
+```
+
+Uso rápido (API)
+
+```python
+import numpy as np
+from ffwin.sliding_window import SlidingWindowFasanoFranceschini
+
+# fluxo sintético (T x d)
+T, d = 5000, 8
+X = np.random.randn(T, d).astype(np.float32)
+X[2500:] += 0.8  # drift sintético
+
+ff = SlidingWindowFasanoFranceschini(
+    window_size=200,
+    step=100,
+    alpha=0.05,
+    n_permutations=50,
+    method="b",           # "b" brute; "r" range-tree
+    pairing="lag_step",    # "adjacent" para janelas back-to-back
+    pca_threshold=None,     # ex.: 15 para ativar PCA quando d>=15
+    pca_target_dim=None,    # ex.: 12 para manter 12 PCs
+)
+
+results = ff.run_parallel(X)  # ou ff.run(X)
+alarms = [r["start_cur"] for r in results if r["drift"]]
+print("alarms:", alarms[:10])
+```
+
+CLI simples (CSV por linha)
+
+```bash
+python -m ffwin.cli --csv data.csv --win 1000 --step 500 --alpha 0.05 --perms 50 \
+    --method b --pairing lag_step --out results.csv
+```
+
+CSV esperado: apenas features numéricas por linha (sem rótulo). Se precisar ler colunas específicas, adapte o script em `ffwin/cli.py`.
+
+Parâmetros principais
+- `window_size (W)`: tamanho da janela
+- `step`: deslocamento entre janelas (overlap em `lag_step`)
+- `alpha`: limiar do p‑valor
+- `n_permutations (B)`: número de permutações
+- `method`: `b` (brute) ou `r` (range-tree)
+- `pairing`: `lag_step` ou `adjacent`
+- `pca_threshold`, `pca_target_dim`, `pca_mode`: controle de PCA opcional
+
+Notas
+- Todas as dependências acima são obrigatórias neste repositório (nenhuma é opcional).
+- Para alta dimensão ($d$ grande), ative PCA ou use `method='r'`.
+- `run_parallel` paraleliza janelas com joblib. Permutações podem ser paralelizadas manualmente (ver exemplos).
+
+Licença
+MIT
