@@ -1,14 +1,14 @@
-Fasano-Franceschini Test Documentation
+Fasano–Franceschini Test Documentation
 
-Este repositório apresenta uma implementação Python do teste multivariado de Kolmogorov–Smirnov, conhecido como teste de **Fasano & Franceschini (FF)**, e um detector de drift baseado em janelas deslizantes (FFWIN).
+This repository provides a Python implementation of the multivariate Kolmogorov–Smirnov test, known as the **Fasano & Franceschini (FF)** test, and a sliding-window drift detector (FFWIN).
 
-<img src="src\figures\fasano-logo.png" alt="Fasano & Franceschini Logo" width="200" align="right"/>
+<img src="src/figures/fasano-logo.png" alt="Fasano & Franceschini Logo" width="200" align="right"/>
 
 ---
 
 ## 1. Overview
 
-O teste FF generaliza o KS para várias dimensões, comparando duas amostras independentes (de tamanhos arbitrários) e avaliando se provêm da mesma distribuição. É útil em alta dimensão, onde testes univariados não capturam diferenças multivariadas.
+The FF test generalizes the Kolmogorov–Smirnov (KS) test to multiple dimensions by comparing two independent samples (of arbitrary sizes) and assessing whether they come from the same distribution. It is useful in higher dimensions, where univariate tests fail to capture multivariate differences.
 
 - Code author: Lucas Matni Bezerra
 - Original method: Fasano & Franceschini (1987)
@@ -16,11 +16,11 @@ O teste FF generaliza o KS para várias dimensões, comparando duas amostras ind
 
 ---
 
-## 2. Theoretical Background (resumo)
+## 2. Theoretical Background (summary)
 
-1. Peacock (1983): introduz a estatística D para KS multivariado.
-2. Fasano & Franceschini (1987): refinam via partição em ortantes definidos por pontos de referência das duas amostras; a estatística final é \(D = d_1 + d_2\), onde \(d_1\) e \(d_2\) são máximos de diferenças normalizadas de contagens por ortante tomando origens em cada amostra.
-3. Puritz, Ness-Cohn & Braun (2023): implementação eficiente em R que inspira esta versão.
+1. Peacock (1983): introduces the D statistic for a multivariate KS test.
+2. Fasano & Franceschini (1987): refine the approach via partitioning space into orthants defined by reference points from the two samples; the final statistic is \(D = d_1 + d_2\), where \(d_1\) and \(d_2\) are maxima of normalized differences of orthant counts when taking each sample as the set of origins.
+3. Puritz, Ness-Cohn & Braun (2023): efficient R implementation that inspires this version.
 
 ---
 
@@ -30,28 +30,28 @@ O teste FF generaliza o KS para várias dimensões, comparando duas amostras ind
 $PROJECT_ROOT
 ├── LICENSE
 ├── README.md
-├── environment.yml          # Ambiente Conda com dependências obrigatórias
-├── pyproject.toml           # Metadados e deps (todas obrigatórias)
+├── environment.yml          # Conda environment with required dependencies
+├── pyproject.toml           # Metadata and dependencies (all required)
 ├── ffwin/
-│   ├── __init__.py          # API pública
-│   ├── cli.py               # CLI simples para CSV
-│   ├── dim_reduction.py     # PCA condicional (scikit-learn)
-│   ├── distance.py          # brute_distance (Numba) e range_distance
-│   ├── ff_core.py           # núcleo do teste FF (D, permutações)
-│   ├── matrix_util.py       # utilitários de matriz (rbind)
-│   ├── range_tree.py        # backend Rtree/Numba para contagem em faixas
-│   └── sliding_window.py    # FFWIN: janelas deslizantes + PCA + p-valores
+│   ├── __init__.py          # Public API
+│   ├── cli.py               # Simple CLI for CSV
+│   ├── dim_reduction.py     # Optional PCA (scikit-learn)
+│   ├── distance.py          # brute_distance (Numba) and range_distance
+│   ├── ff_core.py           # FF test core (D, permutations)
+│   ├── matrix_util.py       # Matrix utilities (rbind)
+│   ├── range_tree.py        # Rtree/Numba backend for range counting
+│   └── sliding_window.py    # FFWIN: sliding windows + PCA + p-values
 └── examples/
-    └── smoke.py             # exemplo sintético de uso
+    └── smoke.py             # Synthetic usage example
 ```
 
 ---
 
-## 4. How to use
+## 4. How to Use
 
 ### 4.1 Installation (Conda)
 
-Crie o ambiente e instale o pacote em modo editável:
+Create the environment and install the package in editable mode:
 
 ```bash
 conda env create -f environment.yml
@@ -59,16 +59,16 @@ conda activate ffwin
 pip install -e .
 ```
 
-Obs.: Em Linux, o backend `Rtree` requer `libspatialindex` (o `environment.yml` já inclui `libspatialindex`).
+Note: On Linux, the `Rtree` backend requires `libspatialindex` (already included in `environment.yml`).
 
-### 4.2 Import the package
+### 4.2 Import the Package
 
 ```python
 from ffwin.ff_core import ff_test_statistic, permutation_test, permutation_test_parallel
 from ffwin.sliding_window import SlidingWindowFasanoFranceschini
 ```
 
-### 4.3 Example usage (FF core)
+### 4.3 Example Usage (FF core)
 
 ```python
 import numpy as np
@@ -92,7 +92,7 @@ zg, ze, p = permutation_test(
 print(f"p-value ≈ {p:.4f}")
 ```
 
-### 4.4 Example usage (FFWIN detector)
+### 4.4 Example Usage (FFWIN detector)
 
 ```python
 import numpy as np
@@ -120,14 +120,14 @@ print("alarms:", alarms[:10])
 ## 5. Requirements
 
 - Python >= 3.10
-- Dependências obrigatórias: numpy, joblib, numba, scikit-learn, pandas, tqdm, Rtree, libspatialindex
+- Required dependencies: numpy, joblib, numba, scikit-learn, pandas, tqdm, Rtree, libspatialindex
 
 ---
 
 ## 6. Notes
 
-- Para alta dimensão (\(d\) grande), use `method='r'` ou ative PCA.
-- `run_parallel` paraleliza janelas; permutações podem ser paralelizadas com `permutation_test_parallel`.
+- For high dimension (large \(d\)), use `method='r'` or enable PCA.
+- `run_parallel` parallelizes windows; permutations can be parallelized with `permutation_test_parallel`.
 
 ---
 
