@@ -1,0 +1,4 @@
+dataset,detector,seed,config_id,mdr,mtd,mtfa,mtr
+dcc_dynamic,FFWIN,1,6441d1f1,0.9,0,40000,4000
+dcc_dynamic,FFWIN,3,6441d1f1,0.8,1250,40000,6.4
+dcc_dynamic,FFWIN,4,4ba2d44d,0.9,0,40000,4000

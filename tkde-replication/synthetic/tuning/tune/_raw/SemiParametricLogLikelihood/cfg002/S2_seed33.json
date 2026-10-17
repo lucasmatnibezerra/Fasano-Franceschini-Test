@@ -1,0 +1,1 @@
+{"phase": "tune", "detector": "SemiParametricLogLikelihood", "cfg": 2, "params": {"n_samples": 100, "n_clusters": 3, "threshold": 0.05}, "scenario": "S2", "seed": 33, "known": [8000, 16000, 24000, 32000, 36000], "alarms": [], "runtime_s": 20753.769}

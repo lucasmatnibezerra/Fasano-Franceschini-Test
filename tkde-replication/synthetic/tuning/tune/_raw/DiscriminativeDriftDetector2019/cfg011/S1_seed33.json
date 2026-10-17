@@ -1,0 +1,1 @@
+{"phase": "tune", "detector": "DiscriminativeDriftDetector2019", "cfg": 11, "params": {"n_reference_samples": 125, "recent_samples_proportion": 0.1, "threshold": 0.8}, "scenario": "S1", "seed": 33, "known": [6800, 13600, 20400, 27200, 34000], "alarms": [4267, 8117, 19205, 21025, 21389, 23139, 32393, 33065], "runtime_s": 45.158}

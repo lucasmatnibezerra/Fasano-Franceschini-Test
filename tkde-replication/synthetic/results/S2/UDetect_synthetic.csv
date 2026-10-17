@@ -1,0 +1,11 @@
+scenario,dataset,detector,seed,n_known_drifts,n_alarms,window,step,mdr,mtd,mtfa,mtr,runtime_s,drifts
+S2,graph_precision,UDetect,11,5,0,,,1.0,nan,nan,nan,7.931,
+S2,graph_precision,UDetect,22,5,0,,,1.0,nan,nan,nan,17.978,
+S2,graph_precision,UDetect,33,5,0,,,1.0,nan,nan,nan,10.857,
+S2,graph_precision,UDetect,44,5,0,,,1.0,nan,nan,nan,17.576,
+S2,graph_precision,UDetect,55,5,0,,,1.0,nan,nan,nan,18.932,
+S2,graph_precision,UDetect,66,5,0,,,1.0,nan,nan,nan,4.397,
+S2,graph_precision,UDetect,77,5,0,,,1.0,nan,nan,nan,11.638,
+S2,graph_precision,UDetect,88,5,0,,,1.0,nan,nan,nan,14.957,
+S2,graph_precision,UDetect,99,5,0,,,1.0,nan,nan,nan,11.497,
+S2,graph_precision,UDetect,110,5,0,,,1.0,nan,nan,nan,22.86,

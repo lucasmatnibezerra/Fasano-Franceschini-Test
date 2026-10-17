@@ -1,0 +1,11 @@
+scenario,dataset,detector,seed,n_known_drifts,n_alarms,window,step,mdr,mtd,mtfa,mtr,runtime_s,drifts
+S3,dcc_dynamic,UDetect,11,10,0,,,1.0,nan,nan,nan,16.865,
+S3,dcc_dynamic,UDetect,22,10,0,,,1.0,nan,nan,nan,13.805,
+S3,dcc_dynamic,UDetect,33,10,0,,,1.0,nan,nan,nan,9.831,
+S3,dcc_dynamic,UDetect,44,10,0,,,1.0,nan,nan,nan,13.318,
+S3,dcc_dynamic,UDetect,55,10,0,,,1.0,nan,nan,nan,14.835,
+S3,dcc_dynamic,UDetect,66,10,0,,,1.0,nan,nan,nan,9.581,
+S3,dcc_dynamic,UDetect,77,10,0,,,1.0,nan,nan,nan,17.271,
+S3,dcc_dynamic,UDetect,88,10,0,,,1.0,nan,nan,nan,11.742,
+S3,dcc_dynamic,UDetect,99,10,0,,,1.0,nan,nan,nan,14.863,
+S3,dcc_dynamic,UDetect,110,10,0,,,1.0,nan,nan,nan,6.707,

@@ -1,0 +1,66 @@
+[
+ {
+  "detector": "FasanoFranceschiniWindow",
+  "scenario": "S1",
+  "cfg": 11,
+  "f1_tune": 0.8425925925925926,
+  "params": {
+   "n_samples": 1000,
+   "step": 1000,
+   "alpha": 0.01,
+   "n_permutations": 100,
+   "method": "b",
+   "pca_threshold": 9,
+   "pca_target_dim": 8,
+   "pca_mode": "concat"
+  }
+ },
+ {
+  "detector": "FasanoFranceschiniWindow",
+  "scenario": "S2",
+  "cfg": 8,
+  "f1_tune": 0.6848484848484847,
+  "params": {
+   "n_samples": 500,
+   "step": 500,
+   "alpha": 0.05,
+   "n_permutations": 100,
+   "method": "b",
+   "pca_threshold": 9,
+   "pca_target_dim": 8,
+   "pca_mode": "concat"
+  }
+ },
+ {
+  "detector": "FasanoFranceschiniWindow",
+  "scenario": "S3",
+  "cfg": 6,
+  "f1_tune": 0.24614845938375352,
+  "params": {
+   "n_samples": 250,
+   "step": 250,
+   "alpha": 0.05,
+   "n_permutations": 100,
+   "method": "b",
+   "pca_threshold": 9,
+   "pca_target_dim": 8,
+   "pca_mode": "concat"
+  }
+ },
+ {
+  "detector": "FasanoFranceschiniWindow",
+  "scenario": "S4",
+  "cfg": 8,
+  "f1_tune": 0.7768157768157767,
+  "params": {
+   "n_samples": 500,
+   "step": 500,
+   "alpha": 0.05,
+   "n_permutations": 100,
+   "method": "b",
+   "pca_threshold": 9,
+   "pca_target_dim": 8,
+   "pca_mode": "concat"
+  }
+ }
+]

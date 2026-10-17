@@ -1,0 +1,402 @@
+[
+ {
+  "detector": "BayesianNonparametricDetectionMethod",
+  "scenario": "S1",
+  "cfg": 33,
+  "f1_tune": 0.2874183006535948,
+  "params": {
+   "n_samples": 500,
+   "const": 1.0,
+   "max_depth": 3,
+   "threshold": 0.45
+  }
+ },
+ {
+  "detector": "BayesianNonparametricDetectionMethod",
+  "scenario": "S2",
+  "cfg": 36,
+  "f1_tune": 0.8424242424242424,
+  "params": {
+   "n_samples": 1000,
+   "const": 0.5,
+   "max_depth": 2,
+   "threshold": 0.45
+  }
+ },
+ {
+  "detector": "BayesianNonparametricDetectionMethod",
+  "scenario": "S3",
+  "cfg": 34,
+  "f1_tune": 0.3311355311355311,
+  "params": {
+   "n_samples": 500,
+   "const": 1.0,
+   "max_depth": 3,
+   "threshold": 0.5
+  }
+ },
+ {
+  "detector": "BayesianNonparametricDetectionMethod",
+  "scenario": "S4",
+  "cfg": 26,
+  "f1_tune": 0.2927170868347339,
+  "params": {
+   "n_samples": 500,
+   "const": 0.5,
+   "max_depth": 2,
+   "threshold": 0.55
+  }
+ },
+ {
+  "detector": "ClusteredStatisticalTestDriftDetectionMethod",
+  "scenario": "S1",
+  "cfg": 28,
+  "f1_tune": 0.4382284382284382,
+  "params": {
+   "n_samples": 1000,
+   "confidence": 0.01,
+   "feature_proportion": 0.1,
+   "n_clusters": 2
+  }
+ },
+ {
+  "detector": "ClusteredStatisticalTestDriftDetectionMethod",
+  "scenario": "S2",
+  "cfg": 24,
+  "f1_tune": 0.2761984392419175,
+  "params": {
+   "n_samples": 1000,
+   "confidence": 0.1,
+   "feature_proportion": 0.1,
+   "n_clusters": 2
+  }
+ },
+ {
+  "detector": "ClusteredStatisticalTestDriftDetectionMethod",
+  "scenario": "S3",
+  "cfg": 28,
+  "f1_tune": 0.380395433027012,
+  "params": {
+   "n_samples": 1000,
+   "confidence": 0.01,
+   "feature_proportion": 0.1,
+   "n_clusters": 2
+  }
+ },
+ {
+  "detector": "ClusteredStatisticalTestDriftDetectionMethod",
+  "scenario": "S4",
+  "cfg": 28,
+  "f1_tune": 0.5257631257631258,
+  "params": {
+   "n_samples": 1000,
+   "confidence": 0.01,
+   "feature_proportion": 0.1,
+   "n_clusters": 2
+  }
+ },
+ {
+  "detector": "DiscriminativeDriftDetector2019",
+  "scenario": "S1",
+  "cfg": 11,
+  "f1_tune": 0.2490842490842491,
+  "params": {
+   "n_reference_samples": 125,
+   "recent_samples_proportion": 0.1,
+   "threshold": 0.8
+  }
+ },
+ {
+  "detector": "DiscriminativeDriftDetector2019",
+  "scenario": "S2",
+  "cfg": 19,
+  "f1_tune": 0.2718762718762719,
+  "params": {
+   "n_reference_samples": 250,
+   "recent_samples_proportion": 0.1,
+   "threshold": 0.7
+  }
+ },
+ {
+  "detector": "DiscriminativeDriftDetector2019",
+  "scenario": "S3",
+  "cfg": 27,
+  "f1_tune": 0.40390390390390385,
+  "params": {
+   "n_reference_samples": 500,
+   "recent_samples_proportion": 0.1,
+   "threshold": 0.6
+  }
+ },
+ {
+  "detector": "DiscriminativeDriftDetector2019",
+  "scenario": "S4",
+  "cfg": 4,
+  "f1_tune": 0.23684210526315788,
+  "params": {
+   "n_reference_samples": 50,
+   "recent_samples_proportion": 0.5,
+   "threshold": 0.7
+  }
+ },
+ {
+  "detector": "FasanoFranceschiniWindow",
+  "scenario": "S1",
+  "cfg": 10,
+  "f1_tune": 0.7629629629629631,
+  "params": {
+   "n_samples": 1000,
+   "step": 1000,
+   "alpha": 0.05,
+   "n_permutations": 100,
+   "method": "b",
+   "pca_threshold": 9,
+   "pca_target_dim": 8,
+   "pca_mode": "concat"
+  }
+ },
+ {
+  "detector": "FasanoFranceschiniWindow",
+  "scenario": "S2",
+  "cfg": 11,
+  "f1_tune": 0.9696969696969697,
+  "params": {
+   "n_samples": 1000,
+   "step": 1000,
+   "alpha": 0.01,
+   "n_permutations": 100,
+   "method": "b",
+   "pca_threshold": 9,
+   "pca_target_dim": 8,
+   "pca_mode": "concat"
+  }
+ },
+ {
+  "detector": "FasanoFranceschiniWindow",
+  "scenario": "S3",
+  "cfg": 6,
+  "f1_tune": 0.2268088521958491,
+  "params": {
+   "n_samples": 250,
+   "step": 250,
+   "alpha": 0.05,
+   "n_permutations": 100,
+   "method": "b",
+   "pca_threshold": 9,
+   "pca_target_dim": 8,
+   "pca_mode": "concat"
+  }
+ },
+ {
+  "detector": "FasanoFranceschiniWindow",
+  "scenario": "S4",
+  "cfg": 11,
+  "f1_tune": 1.0,
+  "params": {
+   "n_samples": 1000,
+   "step": 1000,
+   "alpha": 0.01,
+   "n_permutations": 100,
+   "method": "b",
+   "pca_threshold": 9,
+   "pca_target_dim": 8,
+   "pca_mode": "concat"
+  }
+ },
+ {
+  "detector": "ImageBasedDriftDetector",
+  "scenario": "S1",
+  "cfg": 1,
+  "f1_tune": 0.21766381766381762,
+  "params": {
+   "n_samples": 100,
+   "n_permutations": 10,
+   "update_interval": 50,
+   "n_consecutive_deviations": 4
+  }
+ },
+ {
+  "detector": "ImageBasedDriftDetector",
+  "scenario": "S2",
+  "cfg": 39,
+  "f1_tune": 0.6388888888888888,
+  "params": {
+   "n_samples": 500,
+   "n_permutations": 10,
+   "update_interval": 100,
+   "n_consecutive_deviations": 4
+  }
+ },
+ {
+  "detector": "ImageBasedDriftDetector",
+  "scenario": "S3",
+  "cfg": 3,
+  "f1_tune": 0.25949537450238713,
+  "params": {
+   "n_samples": 100,
+   "n_permutations": 10,
+   "update_interval": 100,
+   "n_consecutive_deviations": 4
+  }
+ },
+ {
+  "detector": "ImageBasedDriftDetector",
+  "scenario": "S4",
+  "cfg": 23,
+  "f1_tune": 0.22120518688024413,
+  "params": {
+   "n_samples": 250,
+   "n_permutations": 10,
+   "update_interval": 250,
+   "n_consecutive_deviations": 4
+  }
+ },
+ {
+  "detector": "OneClassDriftDetector",
+  "scenario": "S1",
+  "cfg": 12,
+  "f1_tune": 0.22727272727272727,
+  "params": {
+   "n_samples": 1000,
+   "threshold": 0.2,
+   "outlier_detector_kwargs": {
+    "nu": 0.5,
+    "kernel": "rbf",
+    "gamma": "auto"
+   }
+  }
+ },
+ {
+  "detector": "OneClassDriftDetector",
+  "scenario": "S2",
+  "cfg": 12,
+  "f1_tune": 0.22727272727272727,
+  "params": {
+   "n_samples": 1000,
+   "threshold": 0.2,
+   "outlier_detector_kwargs": {
+    "nu": 0.5,
+    "kernel": "rbf",
+    "gamma": "auto"
+   }
+  }
+ },
+ {
+  "detector": "OneClassDriftDetector",
+  "scenario": "S3",
+  "cfg": 12,
+  "f1_tune": 0.4081632653061224,
+  "params": {
+   "n_samples": 1000,
+   "threshold": 0.2,
+   "outlier_detector_kwargs": {
+    "nu": 0.5,
+    "kernel": "rbf",
+    "gamma": "auto"
+   }
+  }
+ },
+ {
+  "detector": "OneClassDriftDetector",
+  "scenario": "S4",
+  "cfg": 12,
+  "f1_tune": 0.22727272727272727,
+  "params": {
+   "n_samples": 1000,
+   "threshold": 0.2,
+   "outlier_detector_kwargs": {
+    "nu": 0.5,
+    "kernel": "rbf",
+    "gamma": "auto"
+   }
+  }
+ },
+ {
+  "detector": "SemiParametricLogLikelihood",
+  "scenario": "S1",
+  "cfg": 0,
+  "f1_tune": 0.0,
+  "params": {
+   "n_samples": 100,
+   "n_clusters": 2,
+   "threshold": 0.05
+  }
+ },
+ {
+  "detector": "SemiParametricLogLikelihood",
+  "scenario": "S2",
+  "cfg": 0,
+  "f1_tune": 0.0,
+  "params": {
+   "n_samples": 100,
+   "n_clusters": 2,
+   "threshold": 0.05
+  }
+ },
+ {
+  "detector": "SemiParametricLogLikelihood",
+  "scenario": "S3",
+  "cfg": 0,
+  "f1_tune": 0.0,
+  "params": {
+   "n_samples": 100,
+   "n_clusters": 2,
+   "threshold": 0.05
+  }
+ },
+ {
+  "detector": "SemiParametricLogLikelihood",
+  "scenario": "S4",
+  "cfg": 0,
+  "f1_tune": 0.0,
+  "params": {
+   "n_samples": 100,
+   "n_clusters": 2,
+   "threshold": 0.05
+  }
+ },
+ {
+  "detector": "UDetect",
+  "scenario": "S1",
+  "cfg": 19,
+  "f1_tune": 0.23783123783123783,
+  "params": {
+   "n_windows": 100,
+   "n_samples": 1000,
+   "disjoint_training_windows": false
+  }
+ },
+ {
+  "detector": "UDetect",
+  "scenario": "S2",
+  "cfg": 23,
+  "f1_tune": 0.25783972125435545,
+  "params": {
+   "n_windows": 250,
+   "n_samples": 1000,
+   "disjoint_training_windows": false
+  }
+ },
+ {
+  "detector": "UDetect",
+  "scenario": "S3",
+  "cfg": 15,
+  "f1_tune": 0.3914276904101141,
+  "params": {
+   "n_windows": 50,
+   "n_samples": 1000,
+   "disjoint_training_windows": false
+  }
+ },
+ {
+  "detector": "UDetect",
+  "scenario": "S4",
+  "cfg": 23,
+  "f1_tune": 0.22401866151866154,
+  "params": {
+   "n_windows": 250,
+   "n_samples": 1000,
+   "disjoint_training_windows": false
+  }
+ }
+]

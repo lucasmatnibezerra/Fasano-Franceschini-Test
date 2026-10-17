@@ -1,0 +1,1 @@
+{"phase": "eval_delta1000", "detector": "ImageBasedDriftDetector", "cfg": 39, "params": {"n_samples": 500, "n_permutations": 10, "update_interval": 100, "n_consecutive_deviations": 4}, "scenario": "S2", "seed": 44, "known": [8000, 16000, 24000, 32000, 36000], "alarms": [2314, 16139, 24166, 24345, 32217, 32388, 36296, 36464], "runtime_s": 14.05}

@@ -1,0 +1,11 @@
+scenario,dataset,detector,seed,n_known_drifts,n_alarms,window,step,mdr,mtd,mtfa,mtr,runtime_s,drifts
+S3,dcc_dynamic,DiscriminativeDriftDetector2019,11,10,0,,,1.0,nan,nan,nan,13.937,
+S3,dcc_dynamic,DiscriminativeDriftDetector2019,22,10,0,,,1.0,nan,nan,nan,4.058,
+S3,dcc_dynamic,DiscriminativeDriftDetector2019,33,10,0,,,1.0,nan,nan,nan,6.967,
+S3,dcc_dynamic,DiscriminativeDriftDetector2019,44,10,0,,,1.0,nan,nan,nan,9.571,
+S3,dcc_dynamic,DiscriminativeDriftDetector2019,55,10,0,,,1.0,nan,nan,nan,7.284,
+S3,dcc_dynamic,DiscriminativeDriftDetector2019,66,10,0,,,1.0,nan,nan,nan,3.781,
+S3,dcc_dynamic,DiscriminativeDriftDetector2019,77,10,0,,,1.0,nan,nan,nan,9.408,
+S3,dcc_dynamic,DiscriminativeDriftDetector2019,88,10,0,,,1.0,nan,nan,nan,4.848,
+S3,dcc_dynamic,DiscriminativeDriftDetector2019,99,10,0,,,1.0,nan,nan,nan,1.938,
+S3,dcc_dynamic,DiscriminativeDriftDetector2019,110,10,0,,,1.0,nan,nan,nan,4.464,

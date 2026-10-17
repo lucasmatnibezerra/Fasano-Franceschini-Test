@@ -1,0 +1,239 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 25d0e71..f685677 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -3,10 +3,10 @@ requires = ["setuptools>=68", "wheel"]
+ build-backend = "setuptools.build_meta"
+ 
+ [project]
+-name = "ffwin"
++name = "ff-pkg"
+ version = "0.1.0"
+ description = "Fasano–Franceschini Windowing (FFWIN): unsupervised concept drift detection with sliding windows"
+-authors = [{ name = "FFWIN contributors" }]
++authors = [{ name = "Lucas Matni Bezerra", email = "lucas.matni@itec.ufpa.br" }]
+ readme = "README.md"
+ requires-python = ">=3.10"
+ license = { text = "MIT" }
+@@ -27,11 +27,12 @@ dependencies = [
+ ]
+ 
+ [project.urls]
+-Homepage = "https://github.com/your-org/ffwin"
+-Issues = "https://github.com/your-org/ffwin/issues"
++Homepage = "https://github.com/lucasmatnibezerra/Fasano-Franceschini-Test"
++Issues = "https://github.com/lucasmatnibezerra/Fasano-Franceschini-Test/issues"
+ 
++# The importable package is ff_pkg and it lives under src/.
+ [tool.setuptools]
+-packages = ["ffwin"]
++package-dir = { "" = "src" }
+ 
+-[tool.setuptools.package-data]
+-ffwin = []
++[tool.setuptools.packages.find]
++where = ["src"]
+diff --git a/requirements.txt b/requirements.txt
+index b5634e2..b123cde 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,7 +1,12 @@
++# Mandatory: ff_pkg.ff_core imports ff_pkg.distance, which imports
++# ff_pkg.range_tree, which imports rtree and numba at module level. Every one of
++# these is required even for a brute-force run.
+ numpy>=1.23
+ joblib>=1.2
+-# Optional
+-# scikit-learn>=1.2  # for PCA
+-# Rtree>=1.0.0       # for range-tree backend
+-# pandas>=2.0        # for CLI/pipeline helpers
+-# tqdm>=4.64         # for permutation progress bars
++numba>=0.58
++Rtree>=1.0.0
++scikit-learn>=1.2
++tqdm>=4.64
++
++# Optional, used by the CLI and pipeline helpers only.
++pandas>=2.0
+diff --git a/setup.py b/setup.py
+index 770f6fa..37f6186 100644
+--- a/setup.py
++++ b/setup.py
+@@ -10,13 +10,18 @@ setup(
+     packages=find_packages(where="src"),
+     package_dir={"": "src"},
+     install_requires=[
+-        "numpy>=1.20",
+-        "rtree",
+-        "joblib",
+-        "tqdm",
+-        "pandas",
++        "numpy>=1.23",
++        "joblib>=1.2",
++        # Imported at module level by ff_pkg.range_tree, which ff_pkg.ff_core
++        # reaches through ff_pkg.distance. Mandatory even for method="b".
++        "numba>=0.58",
++        "Rtree>=1.0.0",
++        # Used by ff_pkg.dim_reduction for the PCA projection.
++        "scikit-learn>=1.2",
++        "tqdm>=4.64",
++        "pandas>=2.0",
+     ],
+-    python_requires=">=3.7",
++    python_requires=">=3.10",
+     entry_points={
+         "console_scripts": [
+             "ff-test=ff_pkg.ff_test:main",
+diff --git a/src/ff_pkg/ff_core.py b/src/ff_pkg/ff_core.py
+index f428f3f..d803a0a 100644
+--- a/src/ff_pkg/ff_core.py
++++ b/src/ff_pkg/ff_core.py
+@@ -49,10 +49,40 @@ def ff_test_statistic(X: np.ndarray, Y: np.ndarray, method: str = "b") -> int:
+ 
+ 
+ def permutation_test_pvalue(
+-    z_less: int, z_equal: int, n_permutations: int, seed: int | None = None
++    n_greater: int,
++    n_equal: int,
++    n_permutations: int,
++    seed: int | None = None,
++    rule: str = "paper",
+ ) -> float:
+-    rng = random.Random(seed)
+-    return (z_less + (1 + z_equal) * rng.random()) / (1 + n_permutations)
++    """Calibrate an observed statistic against its permutation null distribution.
++
++    Two conventions are available:
++
++    ``paper`` (default)
++        ``p = (1 + #{D_b >= D_obs}) / (B + 1)``, the plug-in estimator stated in
++        the FFWIN paper. Deterministic given the permutations, and never zero,
++        so a drift alarm always carries a finite significance level.
++    ``randomized``
++        ``p = (#{D_b > D_obs} + (1 + #{D_b == D_obs}) * U) / (B + 1)`` with
++        ``U ~ Uniform(0, 1)``, the tie-broken variant of Puritz et al. Exact in
++        the continuous sense, but not reproducible unless ``seed`` is fixed.
++
++    :param n_greater: the number of permutation statistics strictly above D_obs
++    :param n_equal: the number of permutation statistics equal to D_obs
++    :param n_permutations: the number of permutations B
++    :param seed: the random seed, used by the ``randomized`` rule only
++    :param rule: ``'paper'`` or ``'randomized'``
++    :return: the p-value
++    """
++    if n_permutations <= 0:
++        return 1.0
++    if rule == "paper":
++        return (1 + n_greater + n_equal) / (n_permutations + 1)
++    if rule == "randomized":
++        rng = random.Random(seed)
++        return (n_greater + (1 + n_equal) * rng.random()) / (1 + n_permutations)
++    raise ValueError("rule must be 'paper' or 'randomized'")
+ 
+ 
+ def permutation_test(
+@@ -62,7 +92,20 @@ def permutation_test(
+     verbose: bool = True,
+     seed: int | None = None,
+     method: str = "b",
++    rule: str = "paper",
+ ):
++    """Run the permutation test comparing two multivariate samples.
++
++    :param X: the first sample
++    :param Y: the second sample
++    :param n_permutations: the number of permutations B
++    :param verbose: True to show a progress bar
++    :param seed: the random seed
++    :param method: 'b' for brute force or 'r' for the range tree
++    :param rule: the p-value convention, see :func:`permutation_test_pvalue`
++    :return: the counts of permutation statistics above and equal to the
++        observed one, and the p-value
++    """
+     M = rbind(X, Y)
+     n1, n2 = X.shape[0], Y.shape[0]
+     Z_obs = test_statistic(M, n1, n2, shuffle=False, seed=seed, method=method)
+@@ -85,28 +128,73 @@ def permutation_test(
+             z_greater += 1
+         elif Zp == Z_obs:
+             z_equal += 1
+-    p_value = permutation_test_pvalue(z_greater, z_equal, n_permutations, seed)
++    p_value = permutation_test_pvalue(
++        z_greater, z_equal, n_permutations, seed, rule=rule
++    )
+     return z_greater, z_equal, p_value
+ 
+ 
++def _permuted_statistic(
++    M: np.ndarray, n1: int, n2: int, method: str, seed: int | None
++) -> int:
++    """Compute the test statistic for one random relabelling of the pooled sample.
++
++    Defined at module level so that it can be pickled and sent to a worker
++    process.
++
++    :param M: the pooled sample
++    :param n1: the size of the first sample
++    :param n2: the size of the second sample
++    :param method: 'b' for brute force or 'r' for the range tree
++    :param seed: the seed for this permutation
++    :return: the statistic under the relabelling
++    """
++    rng = random.Random(seed)
++    order = list(range(n1 + n2))
++    rng.shuffle(order)
++    return test_statistic(M, n1, n2, shuffle=False, method=method, s=order)
++
++
+ def permutation_test_parallel(
+     X: np.ndarray,
+     Y: np.ndarray,
+     n_permutations: int,
+     method: str = "b",
+     seed: int | None = None,
++    n_jobs: int = -1,
++    rule: str = "paper",
+ ):
+-    from multiprocessing import Pool, cpu_count
++    """Run the permutation test with the permutations spread across workers.
++
++    Equivalent to :func:`permutation_test`, but each permutation is drawn from
++    its own seed so that the workers do not all reproduce the same relabelling.
++
++    :param X: the first sample
++    :param Y: the second sample
++    :param n_permutations: the number of permutations B
++    :param method: 'b' for brute force or 'r' for the range tree
++    :param seed: the base seed; permutation i uses seed + i + 1
++    :param n_jobs: the number of workers, -1 for all cores
++    :param rule: the p-value convention, see :func:`permutation_test_pvalue`
++    :return: the counts of permutation statistics above and equal to the
++        observed one, and the p-value
++    """
++    from joblib import Parallel, delayed
++
++    M = rbind(X, Y)
++    n1, n2 = X.shape[0], Y.shape[0]
++    Z_obs = test_statistic(M, n1, n2, shuffle=False, seed=seed, method=method)
+ 
+-    def _worker(_):
+-        zg, ze, _ = permutation_test(X, Y, 1, verbose=False, seed=seed, method=method)
+-        return zg, ze
++    seeds = [None if seed is None else seed + i + 1 for i in range(n_permutations)]
++    values = Parallel(n_jobs=n_jobs)(
++        delayed(_permuted_statistic)(M, n1, n2, method, s) for s in seeds
++    )
+ 
+-    with Pool(cpu_count()) as pool:
+-        results = pool.map(_worker, range(n_permutations))
+-    z_greater = sum(r[0] for r in results)
+-    z_equal = sum(r[1] for r in results)
+-    p_value = permutation_test_pvalue(z_greater, z_equal, n_permutations, seed)
++    z_greater = sum(1 for v in values if v > Z_obs)
++    z_equal = sum(1 for v in values if v == Z_obs)
++    p_value = permutation_test_pvalue(
++        z_greater, z_equal, n_permutations, seed, rule=rule
++    )
+     return z_greater, z_equal, p_value
+ 
+ 

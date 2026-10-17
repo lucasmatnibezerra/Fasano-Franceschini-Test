@@ -1,0 +1,1 @@
+{"detector": "ClusteredStatisticalTestDriftDetectionMethod", "seed": 66, "n": 40000, "alarms": [1569, 3661, 7737, 13211, 16072, 16539, 24173, 25819, 28045, 31509, 32066], "n_tests": null, "alpha": null, "params": null, "runtime_s": 50.06}

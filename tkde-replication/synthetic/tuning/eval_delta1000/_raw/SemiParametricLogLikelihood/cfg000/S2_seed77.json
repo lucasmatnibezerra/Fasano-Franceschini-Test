@@ -1,0 +1,1 @@
+{"phase": "eval_delta1000", "detector": "SemiParametricLogLikelihood", "cfg": 0, "params": {"n_samples": 100, "n_clusters": 2, "threshold": 0.05}, "scenario": "S2", "seed": 77, "known": [8000, 16000, 24000, 32000, 36000], "alarms": [], "runtime_s": 12239.283}

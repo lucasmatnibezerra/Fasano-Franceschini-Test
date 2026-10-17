@@ -1,0 +1,1 @@
+{"phase": "eval_delta1000", "detector": "UDetect", "cfg": 23, "params": {"n_windows": 250, "n_samples": 1000, "disjoint_training_windows": false}, "scenario": "S4", "seed": 66, "known": [7000, 14000, 21000, 28000, 35000], "alarms": [8119, 10298, 11906, 13861, 17362, 18363, 21205, 22330, 25604, 26863, 28111, 29652, 32227, 33272, 34954, 36460, 37486, 38790], "runtime_s": 20.33}

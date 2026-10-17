@@ -1,0 +1,11 @@
+scenario,dataset,detector,seed,n_known_drifts,n_alarms,window,step,mdr,mtd,mtfa,mtr,runtime_s,drifts
+S4,hmm_regimes,UDetect,11,5,0,,,1.0,nan,nan,nan,24.813,
+S4,hmm_regimes,UDetect,22,5,0,,,1.0,nan,nan,nan,17.034,
+S4,hmm_regimes,UDetect,33,5,0,,,1.0,nan,nan,nan,5.512,
+S4,hmm_regimes,UDetect,44,5,0,,,1.0,nan,nan,nan,29.793,
+S4,hmm_regimes,UDetect,55,5,0,,,1.0,nan,nan,nan,10.108,
+S4,hmm_regimes,UDetect,66,5,0,,,1.0,nan,nan,nan,5.256,
+S4,hmm_regimes,UDetect,77,5,0,,,1.0,nan,nan,nan,9.913,
+S4,hmm_regimes,UDetect,88,5,0,,,1.0,nan,nan,nan,11.011,
+S4,hmm_regimes,UDetect,99,5,0,,,1.0,nan,nan,nan,11.702,
+S4,hmm_regimes,UDetect,110,5,0,,,1.0,nan,nan,nan,10.654,

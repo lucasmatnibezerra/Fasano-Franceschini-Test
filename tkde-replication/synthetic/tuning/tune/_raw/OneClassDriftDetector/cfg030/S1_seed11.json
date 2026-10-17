@@ -1,0 +1,1 @@
+{"phase": "tune", "detector": "OneClassDriftDetector", "cfg": 30, "params": {"n_samples": 1000, "threshold": 0.4, "outlier_detector_kwargs": {"nu": 0.1, "kernel": "rbf", "gamma": "auto"}}, "scenario": "S1", "seed": 11, "known": [6800, 13600, 20400, 27200, 34000], "alarms": [], "runtime_s": 20.326}

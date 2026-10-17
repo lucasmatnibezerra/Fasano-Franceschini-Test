@@ -1,0 +1,1 @@
+{"detector": "FasanoFranceschiniWindow", "seed": 22, "n": 40000, "alarms": [], "n_tests": 318, "alpha": 0.05, "params": {"n_samples": 250, "step": 125, "alpha": 0.05, "n_permutations": 100, "method": "b", "pca_threshold": 9, "pca_target_dim": 8, "pca_mode": "concat"}, "runtime_s": 1525.205}

@@ -1,0 +1,1 @@
+{"phase": "tune", "detector": "BayesianNonparametricDetectionMethod", "cfg": 32, "params": {"n_samples": 500, "const": 1.0, "max_depth": 2, "threshold": 0.55}, "scenario": "S4", "seed": 22, "known": [7000, 14000, 21000, 28000, 35000], "alarms": [1768, 5111, 18041, 19089, 20852, 22157, 25097, 26888, 28428, 29593, 32049, 33178, 34888, 36782, 38223, 39939], "runtime_s": 1925.97}

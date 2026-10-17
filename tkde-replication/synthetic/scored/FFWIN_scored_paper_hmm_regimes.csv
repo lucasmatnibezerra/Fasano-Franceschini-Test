@@ -1,0 +1,6 @@
+dataset,detector,seed,config_id,mdr,mtd,mtfa,mtr
+hmm_regimes,FFWIN,0,42b3ddcc,0.6,3250,40000,4.92308
+hmm_regimes,FFWIN,1,0f22e4c5,0.8,0,40000,8000
+hmm_regimes,FFWIN,2,f793d0b0,0.8,0,40000,8000
+hmm_regimes,FFWIN,3,f793d0b0,0.8,0,40000,8000
+hmm_regimes,FFWIN,4,42b3ddcc,0.6,0,40000,16000

@@ -1,0 +1,18 @@
+\begin{table}[!t]
+\centering
+\caption{Effect of the PCA projection on \ac{FFWIN} on \textit{INSECTS (abrupt)} (mean $\pm$ 95\% CI over seeds; an interval that rounds to zero is omitted). \texttt{ref} fits the subspace on the reference window, \texttt{concat} on both windows stacked, which is the published default. No cell is marked best: at $k{=}12$ the large \ac{MTR} is produced by silence, as the \ac{MDR} row shows. On \textit{Rialto Bridge Timelapse} the drift times are unknown, so these metrics are undefined and the rows are omitted.}
+\label{tab:pca_ablation}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llccccc@{}}
+\toprule
+  & \textbf{fit} & $k{=}2$ & $k{=}4$ & $k{=}6$ & $k{=}8$ & $k{=}12$ \\
+\midrule
+\ac{MTR}\,$\uparrow$ & \texttt{ref} & 4.07 $\pm$ 0.35 & 4.33 & 3.67 $\pm$ 0.62 & 2.08 $\pm$ 0.20 & 4.05 $\pm$ 1.38 \\
+ & \texttt{concat} & 3.94 $\pm$ 0.40 & 4.33 & 4.06 $\pm$ 0.24 & 2.58 $\pm$ 0.44 & 227.47 $\pm$ 47.72 \\
+\ac{MDR}\,$\downarrow$ & \texttt{ref} & 0.00 & 0.00 & 0.00 & 0.00 & 0.14 $\pm$ 0.06 \\
+ & \texttt{concat} & 0.00 & 0.00 & 0.00 & 0.00 & 0.20 \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}{\scriptsize\raggedright \ac{MTFA} is undefined for a seed with fewer than two false alarms, so \ac{MTR} at $k{=}12$ under \texttt{concat} covers 6 of 10 seeds. A seed drops out exactly when the detector alarmed rarely, which is the condition that inflates the ratio in those that remain.\par}
+\end{table}

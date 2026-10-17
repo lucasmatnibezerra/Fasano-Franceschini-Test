@@ -1,0 +1,6 @@
+dataset,detector,seed,config_id,mdr,mtd,mtfa,mtr
+mix_rotation,FFWIN,0,6441d1f1,0.8,3600,40000,2.22222
+mix_rotation,FFWIN,1,f81768ae,0.8,500,40000,16
+mix_rotation,FFWIN,2,0f22e4c5,0.8,500,40000,16
+mix_rotation,FFWIN,3,4ba2d44d,0.8,3600,40000,2.22222
+mix_rotation,FFWIN,4,0f22e4c5,0.8,500,40000,16

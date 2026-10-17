@@ -1,0 +1,1 @@
+{"phase": "tune_offset", "detector": "FasanoFranceschiniWindow", "cfg": 3, "params": {"n_samples": 500, "step": 250, "alpha": 0.01, "n_permutations": 100, "method": "b", "pca_threshold": 9, "pca_target_dim": 8, "pca_mode": "concat"}, "scenario": "S2", "seed": 11, "known": [7866, 15866, 23866, 31866, 35866], "alarms": [], "runtime_s": 1813.514, "offset": 134}

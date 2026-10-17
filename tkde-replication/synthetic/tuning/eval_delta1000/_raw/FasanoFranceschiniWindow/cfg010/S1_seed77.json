@@ -1,0 +1,1 @@
+{"phase": "eval_delta1000", "detector": "FasanoFranceschiniWindow", "cfg": 10, "params": {"n_samples": 1000, "step": 1000, "alpha": 0.05, "n_permutations": 100, "method": "b", "pca_threshold": 9, "pca_target_dim": 8, "pca_mode": "concat"}, "scenario": "S1", "seed": 77, "known": [6800, 13600, 20400, 27200, 34000], "alarms": [1999, 13999, 20999, 27999], "runtime_s": 1410.221}

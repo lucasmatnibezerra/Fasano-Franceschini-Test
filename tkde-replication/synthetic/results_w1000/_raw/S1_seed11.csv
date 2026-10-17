@@ -1,0 +1,2 @@
+scenario,dataset,detector,seed,n_known_drifts,n_alarms,window,step,mdr,mtd,mtfa,mtr,runtime_s,drifts
+S1,copula,FasanoFranceschiniWindow,11,5,1,1000,500,0.8,299.0,nan,nan,2171.129,27499

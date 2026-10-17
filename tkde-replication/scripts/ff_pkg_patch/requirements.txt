@@ -1,0 +1,12 @@
+# Mandatory: ff_pkg.ff_core imports ff_pkg.distance, which imports
+# ff_pkg.range_tree, which imports rtree and numba at module level. Every one of
+# these is required even for a brute-force run.
+numpy>=1.23
+joblib>=1.2
+numba>=0.58
+Rtree>=1.0.0
+scikit-learn>=1.2
+tqdm>=4.64
+
+# Optional, used by the CLI and pipeline helpers only.
+pandas>=2.0

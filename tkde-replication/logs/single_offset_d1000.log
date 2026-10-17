@@ -1,0 +1,51 @@
+BayesianNonparametricDetectionMethod           cfg033 F1_tune=0.278 {'n_samples': 500, 'const': 1.0, 'max_depth': 3, 'threshold': 0.45}
+ClusteredStatisticalTestDriftDetectionMethod   cfg029 F1_tune=0.340 {'n_samples': 1000, 'confidence': 0.01, 'feature_proportion': 0.1, 'n_clusters': 3}
+DiscriminativeDriftDetector2019                cfg027 F1_tune=0.268 {'n_reference_samples': 500, 'recent_samples_proportion': 0.1, 'threshold': 0.6}
+FasanoFranceschiniWindow                       cfg010 F1_tune=0.567 {'n_samples': 1000, 'step': 1000, 'alpha': 0.05, 'n_permutations': 100, 'method': 'b', 'pca_threshold': 9, 'pca_target_dim': 8, 'pca_mode': 'concat'}
+ImageBasedDriftDetector                        cfg011 F1_tune=0.268 {'n_samples': 100, 'n_permutations': 20, 'update_interval': 250, 'n_consecutive_deviations': 4}
+OneClassDriftDetector                          cfg012 F1_tune=0.272 {'n_samples': 1000, 'threshold': 0.2, 'outlier_detector_kwargs': {'nu': 0.5, 'kernel': 'rbf', 'gamma': 'auto'}}
+SemiParametricLogLikelihood                    cfg000 F1_tune=0.000 {'n_samples': 100, 'n_clusters': 2, 'threshold': 0.05}
+UDetect                                        cfg019 F1_tune=0.262 {'n_windows': 100, 'n_samples': 1000, 'disjoint_training_windows': False}
+wrote /home/sonic/ffwin_tkde_synth/synthetic/tuning/selected_single_offset_delta1000.json
+copied 0 shifted held-out runs from eval_offset_delta1000
+28 runs on 40 workers
+[1/28] FasanoFranceschiniWindow cfg010 S1 seed=110 alarms=7 886.7s
+[2/28] FasanoFranceschiniWindow cfg010 S2 seed=88 alarms=7 911.4s
+[3/28] FasanoFranceschiniWindow cfg010 S2 seed=55 alarms=7 913.1s
+[4/28] FasanoFranceschiniWindow cfg010 S1 seed=55 alarms=6 912.4s
+[5/28] FasanoFranceschiniWindow cfg010 S3 seed=55 alarms=6 912.9s
+[6/28] FasanoFranceschiniWindow cfg010 S4 seed=110 alarms=6 917.3s
+[7/28] FasanoFranceschiniWindow cfg010 S4 seed=99 alarms=7 918.6s
+[8/28] FasanoFranceschiniWindow cfg010 S1 seed=88 alarms=6 915.8s
+[9/28] FasanoFranceschiniWindow cfg010 S1 seed=77 alarms=5 939.1s
+[10/28] FasanoFranceschiniWindow cfg010 S4 seed=77 alarms=5 947.8s
+[11/28] FasanoFranceschiniWindow cfg010 S4 seed=88 alarms=5 947.9s
+[12/28] FasanoFranceschiniWindow cfg010 S4 seed=55 alarms=5 948.5s
+[13/28] FasanoFranceschiniWindow cfg010 S4 seed=66 alarms=5 950.4s
+[14/28] FasanoFranceschiniWindow cfg010 S4 seed=44 alarms=5 950.4s
+[15/28] FasanoFranceschiniWindow cfg010 S3 seed=110 alarms=5 954.0s
+[16/28] FasanoFranceschiniWindow cfg010 S2 seed=44 alarms=5 970.0s
+[17/28] FasanoFranceschiniWindow cfg010 S2 seed=77 alarms=5 970.9s
+[18/28] FasanoFranceschiniWindow cfg010 S2 seed=99 alarms=5 971.8s
+[19/28] FasanoFranceschiniWindow cfg010 S2 seed=66 alarms=6 972.3s
+[20/28] FasanoFranceschiniWindow cfg010 S2 seed=110 alarms=5 973.0s
+[21/28] FasanoFranceschiniWindow cfg010 S1 seed=44 alarms=4 970.8s
+[22/28] FasanoFranceschiniWindow cfg010 S1 seed=99 alarms=4 970.4s
+[23/28] FasanoFranceschiniWindow cfg010 S1 seed=66 alarms=4 973.0s
+[24/28] FasanoFranceschiniWindow cfg010 S3 seed=88 alarms=4 974.8s
+[25/28] FasanoFranceschiniWindow cfg010 S3 seed=66 alarms=4 977.3s
+[26/28] FasanoFranceschiniWindow cfg010 S3 seed=44 alarms=3 996.6s
+[27/28] FasanoFranceschiniWindow cfg010 S3 seed=77 alarms=3 1000.3s
+[28/28] FasanoFranceschiniWindow cfg010 S3 seed=99 alarms=3 1001.9s
+total 1008.0s
+BayesianNonparametricDetectionMethod           cfg033 F1_tune=0.278 {'n_samples': 500, 'const': 1.0, 'max_depth': 3, 'threshold': 0.45}
+ClusteredStatisticalTestDriftDetectionMethod   cfg029 F1_tune=0.340 {'n_samples': 1000, 'confidence': 0.01, 'feature_proportion': 0.1, 'n_clusters': 3}
+DiscriminativeDriftDetector2019                cfg027 F1_tune=0.268 {'n_reference_samples': 500, 'recent_samples_proportion': 0.1, 'threshold': 0.6}
+FasanoFranceschiniWindow                       cfg010 F1_tune=0.567 {'n_samples': 1000, 'step': 1000, 'alpha': 0.05, 'n_permutations': 100, 'method': 'b', 'pca_threshold': 9, 'pca_target_dim': 8, 'pca_mode': 'concat'}
+ImageBasedDriftDetector                        cfg011 F1_tune=0.268 {'n_samples': 100, 'n_permutations': 20, 'update_interval': 250, 'n_consecutive_deviations': 4}
+OneClassDriftDetector                          cfg012 F1_tune=0.272 {'n_samples': 1000, 'threshold': 0.2, 'outlier_detector_kwargs': {'nu': 0.5, 'kernel': 'rbf', 'gamma': 'auto'}}
+SemiParametricLogLikelihood                    cfg000 F1_tune=0.000 {'n_samples': 100, 'n_clusters': 2, 'threshold': 0.05}
+UDetect                                        cfg019 F1_tune=0.262 {'n_windows': 100, 'n_samples': 1000, 'disjoint_training_windows': False}
+wrote /home/sonic/ffwin_tkde_synth/synthetic/tuning/selected_single_offset_delta1000.json
+wrote /home/sonic/ffwin_tkde_synth/synthetic/tuning/eval_single_offset_delta1000.csv
+wrote /home/sonic/ffwin_tkde_synth/tables/table_synth_single.tex

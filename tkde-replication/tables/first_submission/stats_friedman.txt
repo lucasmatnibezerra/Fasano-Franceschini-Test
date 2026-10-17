@@ -1,0 +1,32 @@
+=== lift-per-drift ===
+streams (blocks) N = 11, detectors k = 8
+Friedman chi2 = 53.0043, p = 0.000000
+significant at 0.05: yes
+Nemenyi critical difference (alpha=0.05) = 3.1658
+mean ranks (1 = best):
+  FFWIN      2.091
+  BNDM       2.727
+  D3         3.000
+  SPLL       3.273
+  UDetect    5.364
+  CSDDM      5.409
+  OCDD       6.227
+  IBDD       7.909
+not separable from the best rank at CD=3.166: FFWIN, BNDM, D3, SPLL
+
+=== accuracy ===
+streams (blocks) N = 11, detectors k = 8
+Friedman chi2 = 19.6501, p = 0.006377
+significant at 0.05: yes
+Nemenyi critical difference (alpha=0.05) = 3.1658
+mean ranks (1 = best):
+  CSDDM      2.409
+  OCDD       3.682
+  UDetect    3.727
+  BNDM       4.000
+  D3         5.091
+  IBDD       5.364
+  SPLL       5.818
+  FFWIN      5.909
+not separable from the best rank at CD=3.166: CSDDM, OCDD, UDetect, BNDM, D3, IBDD
+

@@ -1,0 +1,4 @@
+scenario,dataset,detector,seed,n_known_drifts,n_alarms,window,step,mdr,mtd,mtfa,mtr,runtime_s,drifts
+S4,hmm_regimes,FasanoFranceschiniWindow,11,5,2,1000,500,0.6,499.0,nan,nan,2123.249,7499 14499
+S4,hmm_regimes,FasanoFranceschiniWindow,22,5,3,1000,500,0.4,499.0,nan,nan,2071.571,7499 14499 28499
+S4,hmm_regimes,FasanoFranceschiniWindow,33,5,3,1000,500,0.4,832.3333333333334,nan,nan,2098.564,7999 14499 28999

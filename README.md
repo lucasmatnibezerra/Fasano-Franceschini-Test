@@ -6,6 +6,16 @@ This repository provides a Python implementation of the multivariate Kolmogorovâ
 
 ---
 
+## Replication package (IEEE TKDE)
+
+The replication package of the FFWIN manuscript submitted to IEEE TKDE is in
+[`tkde-replication/`](tkde-replication/): the detector as evaluated, the evaluation
+harness, the synthetic stream generator, the fixed seeds, and every per-run output.
+See [`tkde-replication/README.md`](tkde-replication/README.md) for how to regenerate
+the tables of the paper.
+
+---
+
 ## 1. Overview
 
 The FF test generalizes the Kolmogorovâ€“Smirnov (KS) test to multiple dimensions by comparing two independent samples (of arbitrary sizes) and assessing whether they come from the same distribution. It is useful in higher dimensions, where univariate tests fail to capture multivariate differences.

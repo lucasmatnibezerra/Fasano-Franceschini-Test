@@ -1,0 +1,11 @@
+scenario,dataset,detector,seed,n_known_drifts,n_alarms,window,step,mdr,mtd,mtfa,mtr,runtime_s,drifts
+S4,hmm_regimes,FasanoFranceschiniWindow,11,5,1,250,125,0.8,124.0,nan,nan,1683.564,14124
+S4,hmm_regimes,FasanoFranceschiniWindow,22,5,0,250,125,1.0,nan,nan,nan,1418.08,
+S4,hmm_regimes,FasanoFranceschiniWindow,33,5,0,250,125,1.0,nan,nan,nan,614.969,
+S4,hmm_regimes,FasanoFranceschiniWindow,44,5,0,250,125,1.0,nan,nan,nan,1788.111,
+S4,hmm_regimes,FasanoFranceschiniWindow,55,5,1,250,125,0.8,249.0,nan,nan,815.191,7249
+S4,hmm_regimes,FasanoFranceschiniWindow,66,5,1,250,125,0.8,124.0,nan,nan,688.713,7124
+S4,hmm_regimes,FasanoFranceschiniWindow,77,5,0,250,125,1.0,nan,nan,nan,707.227,
+S4,hmm_regimes,FasanoFranceschiniWindow,88,5,0,250,125,1.0,nan,nan,nan,1320.059,
+S4,hmm_regimes,FasanoFranceschiniWindow,99,5,0,250,125,1.0,nan,nan,nan,689.606,
+S4,hmm_regimes,FasanoFranceschiniWindow,110,5,1,250,125,0.8,3749.0,nan,nan,910.868,24749

@@ -1,0 +1,1 @@
+{"phase": "tune", "detector": "ClusteredStatisticalTestDriftDetectionMethod", "cfg": 21, "params": {"n_samples": 500, "confidence": 0.01, "feature_proportion": 0.1, "n_clusters": 3}, "scenario": "S1", "seed": 33, "known": [6800, 13600, 20400, 27200, 34000], "alarms": [1766, 4083, 12104, 17453, 18088, 21544, 25799, 27108, 29997, 32318], "runtime_s": 1137.957}

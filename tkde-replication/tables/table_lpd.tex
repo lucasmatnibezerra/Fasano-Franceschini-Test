@@ -1,0 +1,24 @@
+\begin{table*}[!t]
+\centering
+\caption{Lift-per-drift of the Hoeffding Tree with different detectors on real streams (mean $\pm$ 95\% CI over seeds). Read together with the alarm counts in Table~\ref{tab:alarm_counts}.}
+\label{tab:lpd_ffwin}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccccccc@{}}
+\toprule
+\textbf{Data stream} & \textbf{BNDM} & \textbf{CSDDM} & \textbf{D3} & \textbf{IBDD} & \textbf{OCDD} & \textbf{SPLL} & \textbf{UDetect} & \textbf{FFWIN} \\
+\midrule
+Elec2 & 0.0024 & 0.0012 $\pm$ 0.0000 & 0.0015 $\pm$ 0.0000 & 0.0001 $\pm$ 0.0000 & 0.0012 & 0.0012 $\pm$ 0.0000 & 0.0017 $\pm$ 0.0000 & \textbf{0.0037} $\pm$ 0.0000 \\
+INSECTS (abrupt) & 0.0064 & 0.0024 $\pm$ 0.0002 & \textbf{0.0188} $\pm$ 0.0009 & 0.0006 $\pm$ 0.0000 & 0.0007 & 0.0131 $\pm$ 0.0000 & 0.0008 $\pm$ 0.0000 & 0.0084 $\pm$ 0.0003 \\
+INSECTS (gradual) & 0.0193 & 0.0119 $\pm$ 0.0006 & \textbf{0.0817} $\pm$ 0.0046 & 0.0026 $\pm$ 0.0000 & 0.0040 & \textbf{0.0817} $\pm$ 0.0000 & 0.0039 $\pm$ 0.0000 & 0.0438 $\pm$ 0.0028 \\
+INSECTS (inc.-abrupt) & 0.0062 & 0.0033 $\pm$ 0.0001 & \textbf{0.0318} $\pm$ 0.0025 & 0.0006 $\pm$ 0.0000 & 0.0011 & 0.0184 $\pm$ 0.0000 & 0.0012 $\pm$ 0.0000 & 0.0094 $\pm$ 0.0001 \\
+INSECTS (incremental) & 0.0197 & 0.0064 $\pm$ 0.0004 & 0.0000 $\pm$ 0.0000 & 0.0010 $\pm$ 0.0000 & 0.0015 & \textbf{0.1769} $\pm$ 0.0000 & 0.0016 $\pm$ 0.0000 & 0.0356 $\pm$ 0.0027 \\
+INSECTS (inc.-reocc.) & 0.0086 & 0.0041 $\pm$ 0.0002 & \textbf{0.0376} $\pm$ 0.0021 & 0.0007 $\pm$ 0.0000 & 0.0014 & 0.0268 $\pm$ 0.0000 & 0.0015 $\pm$ 0.0000 & 0.0110 $\pm$ 0.0003 \\
+NOAA Weather & 0.0012 & 0.0007 $\pm$ 0.0000 & 0.0009 $\pm$ 0.0000 & 0.0001 $\pm$ 0.0000 & 0.0007 & \textbf{0.0233} $\pm$ 0.0000 & 0.0007 $\pm$ 0.0000 & 0.0011 $\pm$ 0.0000 \\
+Outdoor Objects & 0.0333 & 0.0198 $\pm$ 0.0000 & \textbf{0.0472} $\pm$ 0.0019 & 0.0114 $\pm$ 0.0000 & 0.0259 & 0.0204 $\pm$ 0.0000 & 0.0255 $\pm$ 0.0000 & 0.0333 $\pm$ 0.0000 \\
+Poker Hands & 0.0001 & 0.0001 $\pm$ 0.0000 & 0.0001 $\pm$ 0.0000 & 0.0000 $\pm$ 0.0000 & 0.0001 & 0.0001 $\pm$ 0.0000 & 0.0001 $\pm$ 0.0000 & \textbf{0.0007} $\pm$ 0.0000 \\
+Powersupply & 0.0010 & 0.0004 $\pm$ 0.0000 & 0.0007 $\pm$ 0.0000 & 0.0001 $\pm$ 0.0000 & 0.0002 & \textbf{0.0021} $\pm$ 0.0000 & 0.0003 $\pm$ 0.0000 & 0.0006 $\pm$ 0.0000 \\
+Rialto Bridge Timelapse & \textbf{0.0019} & 0.0011 $\pm$ 0.0000 & 0.0015 $\pm$ 0.0000 & 0.0001 $\pm$ 0.0000 & 0.0012 & 0.0012 $\pm$ 0.0000 & 0.0011 $\pm$ 0.0000 & \textbf{0.0019} $\pm$ 0.0000 \\
+\bottomrule
+\end{tabular}
+\end{table*}

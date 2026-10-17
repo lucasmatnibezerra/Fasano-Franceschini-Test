@@ -1,0 +1,11 @@
+scenario,dataset,detector,seed,n_known_drifts,n_alarms,window,step,mdr,mtd,mtfa,mtr,runtime_s,drifts
+S3,dcc_dynamic,FasanoFranceschiniWindow,11,10,0,250,125,1.0,nan,nan,nan,1344.047,
+S3,dcc_dynamic,FasanoFranceschiniWindow,22,10,0,250,125,1.0,nan,nan,nan,639.357,
+S3,dcc_dynamic,FasanoFranceschiniWindow,33,10,0,250,125,1.0,nan,nan,nan,870.302,
+S3,dcc_dynamic,FasanoFranceschiniWindow,44,10,0,250,125,1.0,nan,nan,nan,1379.065,
+S3,dcc_dynamic,FasanoFranceschiniWindow,55,10,0,250,125,1.0,nan,nan,nan,1326.957,
+S3,dcc_dynamic,FasanoFranceschiniWindow,66,10,0,250,125,1.0,nan,nan,nan,838.82,
+S3,dcc_dynamic,FasanoFranceschiniWindow,77,10,0,250,125,1.0,nan,nan,nan,1500.213,
+S3,dcc_dynamic,FasanoFranceschiniWindow,88,10,0,250,125,1.0,nan,nan,nan,626.64,
+S3,dcc_dynamic,FasanoFranceschiniWindow,99,10,0,250,125,1.0,nan,nan,nan,639.751,
+S3,dcc_dynamic,FasanoFranceschiniWindow,110,10,0,250,125,1.0,nan,nan,nan,622.748,

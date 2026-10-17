@@ -1,0 +1,1 @@
+{"phase": "eval_delta1000", "detector": "DiscriminativeDriftDetector2019", "cfg": 11, "params": {"n_reference_samples": 125, "recent_samples_proportion": 0.1, "threshold": 0.8}, "scenario": "S1", "seed": 66, "known": [6800, 13600, 20400, 27200, 34000], "alarms": [17931, 27031, 31371, 33877, 37755], "runtime_s": 19.88}

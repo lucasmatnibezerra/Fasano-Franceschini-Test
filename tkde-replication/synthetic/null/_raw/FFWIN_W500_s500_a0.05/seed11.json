@@ -1,0 +1,1 @@
+{"detector": "FFWIN_W500_s500_a0.05", "seed": 11, "n": 40000, "alarms": [1999, 6999, 10499, 12999, 14499], "n_tests": 74, "alpha": 0.05, "params": {"n_samples": 500, "step": 500, "alpha": 0.05, "n_permutations": 100, "method": "b", "pca_threshold": 9, "pca_target_dim": 8, "pca_mode": "concat"}, "runtime_s": 852.927}

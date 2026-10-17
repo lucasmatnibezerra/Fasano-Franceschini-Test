@@ -1,0 +1,1 @@
+{"phase": "eval_delta1000", "detector": "ClusteredStatisticalTestDriftDetectionMethod", "cfg": 28, "params": {"n_samples": 1000, "confidence": 0.01, "feature_proportion": 0.1, "n_clusters": 2}, "scenario": "S4", "seed": 77, "known": [7000, 14000, 21000, 28000, 35000], "alarms": [2113, 7765, 12993, 14126, 15126, 19671, 22575], "runtime_s": 1075.763}

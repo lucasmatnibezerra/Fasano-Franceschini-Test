@@ -1,0 +1,6 @@
+dataset,detector,seed,config_id,mdr,mtd,mtfa,mtr
+graph_precision,FFWIN,0,f7f4c366,0.4,3666.67,40000,6.54545
+graph_precision,FFWIN,1,f7f4c366,0.6,1750,40000,9.14286
+graph_precision,FFWIN,2,0f22e4c5,0.8,0,40000,8000
+graph_precision,FFWIN,3,d5ba869c,0.4,2500,40000,9.6
+graph_precision,FFWIN,4,36eedd1b,0.4,0,40000,24000

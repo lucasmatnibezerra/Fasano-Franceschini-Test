@@ -1,0 +1,11 @@
+# the parent repository ignores these; the per-run outputs here must be tracked
+!*.csv
+!*.png
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+# third-party streams are rebuilt from the source archive, never redistributed
+datasets/*.csv
+datasets/*.arff

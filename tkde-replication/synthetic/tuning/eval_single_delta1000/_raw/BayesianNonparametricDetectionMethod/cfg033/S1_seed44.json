@@ -1,0 +1,1 @@
+{"phase": "eval_delta1000", "detector": "BayesianNonparametricDetectionMethod", "cfg": 33, "params": {"n_samples": 500, "const": 1.0, "max_depth": 3, "threshold": 0.45}, "scenario": "S1", "seed": 44, "known": [6800, 13600, 20400, 27200, 34000], "alarms": [1938, 6691, 7933, 10001, 15359, 19106, 21271, 23175, 26107, 30691, 32208, 35725, 37363, 39022], "runtime_s": 1802.034}

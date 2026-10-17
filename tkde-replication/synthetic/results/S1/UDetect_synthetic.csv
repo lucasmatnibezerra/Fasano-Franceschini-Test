@@ -1,0 +1,11 @@
+scenario,dataset,detector,seed,n_known_drifts,n_alarms,window,step,mdr,mtd,mtfa,mtr,runtime_s,drifts
+S1,copula,UDetect,11,5,0,,,1.0,nan,nan,nan,18.716,
+S1,copula,UDetect,22,5,0,,,1.0,nan,nan,nan,18.293,
+S1,copula,UDetect,33,5,0,,,1.0,nan,nan,nan,3.765,
+S1,copula,UDetect,44,5,0,,,1.0,nan,nan,nan,6.234,
+S1,copula,UDetect,55,5,0,,,1.0,nan,nan,nan,16.829,
+S1,copula,UDetect,66,5,0,,,1.0,nan,nan,nan,27.151,
+S1,copula,UDetect,77,5,0,,,1.0,nan,nan,nan,14.496,
+S1,copula,UDetect,88,5,0,,,1.0,nan,nan,nan,7.869,
+S1,copula,UDetect,99,5,0,,,1.0,nan,nan,nan,10.292,
+S1,copula,UDetect,110,5,0,,,1.0,nan,nan,nan,11.895,

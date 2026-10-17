@@ -1,0 +1,6 @@
+dataset,detector,seed,config_id,mdr,mtd,mtfa,mtr
+copula,FFWIN,0,42b3ddcc,0.8,5900,40000,1.35593
+copula,FFWIN,1,42b3ddcc,0.6,6000,40000,2.66667
+copula,FFWIN,2,0f22e4c5,0.6,6250,40000,2.56
+copula,FFWIN,3,d5ba869c,0.8,250,40000,32
+copula,FFWIN,4,36eedd1b,0.6,6250,40000,2.56

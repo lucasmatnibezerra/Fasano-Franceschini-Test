@@ -1,0 +1,94 @@
+[
+ {
+  "detector": "BayesianNonparametricDetectionMethod",
+  "cfg": 33,
+  "f1_tune": 0.2778438799762329,
+  "params": {
+   "n_samples": 500,
+   "const": 1.0,
+   "max_depth": 3,
+   "threshold": 0.45
+  }
+ },
+ {
+  "detector": "ClusteredStatisticalTestDriftDetectionMethod",
+  "cfg": 29,
+  "f1_tune": 0.3400989941431118,
+  "params": {
+   "n_samples": 1000,
+   "confidence": 0.01,
+   "feature_proportion": 0.1,
+   "n_clusters": 3
+  }
+ },
+ {
+  "detector": "DiscriminativeDriftDetector2019",
+  "cfg": 27,
+  "f1_tune": 0.26842762713452367,
+  "params": {
+   "n_reference_samples": 500,
+   "recent_samples_proportion": 0.1,
+   "threshold": 0.6
+  }
+ },
+ {
+  "detector": "FasanoFranceschiniWindow",
+  "cfg": 11,
+  "f1_tune": 0.6382575757575758,
+  "params": {
+   "n_samples": 1000,
+   "step": 1000,
+   "alpha": 0.01,
+   "n_permutations": 100,
+   "method": "b",
+   "pca_threshold": 9,
+   "pca_target_dim": 8,
+   "pca_mode": "concat"
+  }
+ },
+ {
+  "detector": "ImageBasedDriftDetector",
+  "cfg": 11,
+  "f1_tune": 0.2683382745408362,
+  "params": {
+   "n_samples": 100,
+   "n_permutations": 20,
+   "update_interval": 250,
+   "n_consecutive_deviations": 4
+  }
+ },
+ {
+  "detector": "OneClassDriftDetector",
+  "cfg": 12,
+  "f1_tune": 0.2724953617810761,
+  "params": {
+   "n_samples": 1000,
+   "threshold": 0.2,
+   "outlier_detector_kwargs": {
+    "nu": 0.5,
+    "kernel": "rbf",
+    "gamma": "auto"
+   }
+  }
+ },
+ {
+  "detector": "SemiParametricLogLikelihood",
+  "cfg": 0,
+  "f1_tune": 0.0,
+  "params": {
+   "n_samples": 100,
+   "n_clusters": 2,
+   "threshold": 0.05
+  }
+ },
+ {
+  "detector": "UDetect",
+  "cfg": 19,
+  "f1_tune": 0.2623059177370011,
+  "params": {
+   "n_windows": 100,
+   "n_samples": 1000,
+   "disjoint_training_windows": false
+  }
+ }
+]

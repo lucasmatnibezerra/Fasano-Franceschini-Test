@@ -1,0 +1,1 @@
+{"phase": "tune", "detector": "ImageBasedDriftDetector", "cfg": 7, "params": {"n_samples": 100, "n_permutations": 20, "update_interval": 50, "n_consecutive_deviations": 4}, "scenario": "S2", "seed": 33, "known": [8000, 16000, 24000, 32000, 36000], "alarms": [9523, 11332, 14340, 15428, 16797, 19377, 19501, 23104, 34880, 38331], "runtime_s": 19.503}

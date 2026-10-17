@@ -1,0 +1,50 @@
+diff --git a/datasets/electricity.py b/datasets/electricity.py
+index fc8e728..c94082e 100644
+--- a/datasets/electricity.py
++++ b/datasets/electricity.py
+@@ -13,12 +13,15 @@ class Electricity(base.FileDataset):
+             n_samples=45_312,
+             n_features=8,
+             task=base.MULTI_CLF,
+-            filename="elec.arff",
++            filename="elec.csv",
+         )
+         self.full_path = path.join(directory_path, self.filename)
+ 
+     def __iter__(self):
+-        return stream.iter_arff(
++        converters = {f"att{i}": float for i in range(1, 9)}
++        converters["class"] = int
++        return stream.iter_csv(
+             self.full_path,
++            converters=converters,
+             target="class",
+         )
+diff --git a/optimization/config_generator.py b/optimization/config_generator.py
+index dc0063c..ff04cf7 100644
+--- a/optimization/config_generator.py
++++ b/optimization/config_generator.py
+@@ -38,13 +38,17 @@ class ConfigGenerator:
+         :return: the configurations
+         """
+         all_parameters = [list(parameter) for parameter in self.parameters]
+-        for i, combination in enumerate(itertools.product(*all_parameters)):
++        # Every configuration is run under every seed. The previous version
++        # indexed self.seeds by the combination number, so a single-valued
++        # parameter grid consumed only seeds[0] and silently discarded the rest,
++        # and a grid with more combinations than seeds raised IndexError.
++        seeds = self.seeds if self.seeds is not None else [None]
++        for combination in itertools.product(*all_parameters):
+             config = {
+                 parameter.name: combination[j]
+                 for j, parameter in enumerate(self.parameters)
+             }
+-            if self.seeds is None:
+-                config["seed"] = int(time.time())
+-            else:
+-                config["seed"] = self.seeds[i]
+-            yield config
++            for seed in seeds:
++                seeded = dict(config)
++                seeded["seed"] = int(time.time()) if seed is None else seed
++                yield seeded

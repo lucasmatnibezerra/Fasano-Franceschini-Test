@@ -1,0 +1,21 @@
+\begin{table}[!t]
+\centering
+\caption{Sensitivity of the proxy metrics to the downstream classifier: Hoeffding Tree (HT) against Gaussian Naive Bayes (NB), averaged over all real streams and seeds.}
+\label{tab:classifier_sensitivity}
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Detector} & \textbf{Acc.\ (HT)} & \textbf{Acc.\ (NB)} & \textbf{LPD (HT)} & \textbf{LPD (NB)} \\
+\midrule
+BNDM & 0.623 $\pm$ 0.099 & 0.582 $\pm$ 0.116 & 0.0091 $\pm$ 0.0063 & 0.0067 $\pm$ 0.0043 \\
+CSDDM & \textbf{0.636} $\pm$ 0.030 & \textbf{0.589} $\pm$ 0.036 & 0.0047 $\pm$ 0.0011 & 0.0034 $\pm$ 0.0007 \\
+D3 & 0.618 $\pm$ 0.030 & 0.567 $\pm$ 0.035 & 0.0202 $\pm$ 0.0048 & 0.0170 $\pm$ 0.0046 \\
+IBDD & 0.621 $\pm$ 0.033 & 0.576 $\pm$ 0.040 & 0.0016 $\pm$ 0.0006 & 0.0009 $\pm$ 0.0002 \\
+OCDD & 0.632 $\pm$ 0.102 & 0.583 $\pm$ 0.121 & 0.0035 $\pm$ 0.0044 & 0.0017 $\pm$ 0.0013 \\
+SPLL & 0.617 $\pm$ 0.030 & 0.569 $\pm$ 0.034 & 0.0332 $\pm$ 0.0095 & 0.0306 $\pm$ 0.0096 \\
+UDetect & 0.631 $\pm$ 0.031 & 0.582 $\pm$ 0.037 & 0.0035 $\pm$ 0.0013 & 0.0017 $\pm$ 0.0004 \\
+FFWIN & 0.612 $\pm$ 0.030 & 0.558 $\pm$ 0.034 & \textbf{0.0464} $\pm$ 0.0171 & \textbf{0.0411} $\pm$ 0.0153 \\
+\bottomrule
+\end{tabular}
+\end{table}

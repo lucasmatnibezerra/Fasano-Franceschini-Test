@@ -1,0 +1,1 @@
+{"detector": "DiscriminativeDriftDetector2019", "seed": 99, "n": 40000, "alarms": [], "n_tests": null, "alpha": null, "params": null, "runtime_s": 4.384}

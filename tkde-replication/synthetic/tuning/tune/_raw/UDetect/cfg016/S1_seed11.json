@@ -1,0 +1,1 @@
+{"phase": "tune", "detector": "UDetect", "cfg": 16, "params": {"n_windows": 100, "n_samples": 100, "disjoint_training_windows": false}, "scenario": "S1", "seed": 11, "known": [6800, 13600, 20400, 27200, 34000], "alarms": [17947, 18908, 38460], "runtime_s": 22.173}

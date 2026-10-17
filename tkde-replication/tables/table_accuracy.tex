@@ -1,0 +1,24 @@
+\begin{table*}[!t]
+\centering
+\caption{Downstream mean accuracy of the Hoeffding Tree under each detector on real streams (mean $\pm$ 95\% CI over seeds).}
+\label{tab:acc_ht_detectors}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccccccc@{}}
+\toprule
+\textbf{Data stream} & \textbf{BNDM} & \textbf{CSDDM} & \textbf{D3} & \textbf{IBDD} & \textbf{OCDD} & \textbf{SPLL} & \textbf{UDetect} & \textbf{FFWIN} \\
+\midrule
+Elec2 & 0.825 & 0.828 $\pm$ 0.000 & 0.832 $\pm$ 0.001 & 0.836 $\pm$ 0.000 & 0.828 & 0.822 $\pm$ 0.000 & \textbf{0.839} $\pm$ 0.000 & 0.816 $\pm$ 0.000 \\
+INSECTS (abrupt) & \textbf{0.661} & 0.660 $\pm$ 0.001 & 0.650 $\pm$ 0.002 & 0.638 $\pm$ 0.000 & 0.643 & 0.639 $\pm$ 0.000 & 0.645 $\pm$ 0.000 & \textbf{0.661} $\pm$ 0.000 \\
+INSECTS (gradual) & 0.681 & \textbf{0.696} $\pm$ 0.003 & 0.673 $\pm$ 0.001 & 0.677 $\pm$ 0.000 & 0.682 & 0.659 $\pm$ 0.000 & 0.686 $\pm$ 0.000 & 0.675 $\pm$ 0.001 \\
+INSECTS (inc.-abrupt) & 0.678 & \textbf{0.680} $\pm$ 0.002 & 0.632 $\pm$ 0.003 & 0.659 $\pm$ 0.000 & 0.670 & 0.637 $\pm$ 0.000 & 0.670 $\pm$ 0.000 & 0.673 $\pm$ 0.001 \\
+INSECTS (incremental) & \textbf{0.569} & 0.558 $\pm$ 0.001 & 0.521 $\pm$ 0.000 & 0.495 $\pm$ 0.000 & 0.516 & 0.528 $\pm$ 0.000 & 0.516 $\pm$ 0.000 & 0.561 $\pm$ 0.004 \\
+INSECTS (inc.-reocc.) & \textbf{0.696} & 0.695 $\pm$ 0.001 & 0.650 $\pm$ 0.002 & 0.672 $\pm$ 0.000 & 0.689 & 0.645 $\pm$ 0.000 & 0.690 $\pm$ 0.000 & 0.687 $\pm$ 0.001 \\
+NOAA Weather & 0.709 & 0.713 $\pm$ 0.000 & \textbf{0.719} $\pm$ 0.001 & 0.700 $\pm$ 0.000 & 0.712 & 0.712 $\pm$ 0.000 & 0.707 $\pm$ 0.000 & 0.703 $\pm$ 0.001 \\
+Outdoor Objects & 0.670 & 0.700 $\pm$ 0.000 & 0.700 $\pm$ 0.004 & \textbf{0.789} $\pm$ 0.000 & 0.739 & 0.689 $\pm$ 0.000 & 0.735 $\pm$ 0.000 & 0.670 $\pm$ 0.000 \\
+Poker Hands & 0.656 & 0.683 $\pm$ 0.000 & 0.683 $\pm$ 0.000 & \textbf{0.719} $\pm$ 0.000 & 0.687 & 0.681 $\pm$ 0.000 & 0.677 $\pm$ 0.000 & 0.592 $\pm$ 0.000 \\
+Powersupply & 0.168 & \textbf{0.172} $\pm$ 0.001 & 0.166 $\pm$ 0.001 & 0.159 $\pm$ 0.000 & 0.167 & 0.164 $\pm$ 0.000 & 0.168 $\pm$ 0.000 & 0.165 $\pm$ 0.000 \\
+Rialto Bridge Timelapse & 0.543 & 0.610 $\pm$ 0.001 & 0.567 $\pm$ 0.003 & 0.491 $\pm$ 0.000 & \textbf{0.621} & 0.610 $\pm$ 0.000 & 0.610 $\pm$ 0.000 & 0.548 $\pm$ 0.000 \\
+\bottomrule
+\end{tabular}
+\end{table*}

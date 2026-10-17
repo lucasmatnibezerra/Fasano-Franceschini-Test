@@ -1,0 +1,1 @@
+{"phase": "tune", "detector": "FasanoFranceschiniWindow", "cfg": 14, "params": {"n_samples": 500, "step": 125, "alpha": 0.05, "n_permutations": 100, "method": "b", "pca_threshold": 9, "pca_target_dim": 8, "pca_mode": "concat"}, "scenario": "S1", "seed": 22, "known": [6800, 13600, 20400, 27200, 34000], "alarms": [], "runtime_s": 3587.067}

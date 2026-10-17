@@ -1,0 +1,5 @@
+S1 FasanoFranceschiniWindow                       cfg011 F1_tune=0.843 {'n_samples': 1000, 'step': 1000, 'alpha': 0.01, 'n_permutations': 100, 'method': 'b', 'pca_threshold': 9, 'pca_target_dim': 8, 'pca_mode': 'concat'}
+S2 FasanoFranceschiniWindow                       cfg008 F1_tune=0.685 {'n_samples': 500, 'step': 500, 'alpha': 0.05, 'n_permutations': 100, 'method': 'b', 'pca_threshold': 9, 'pca_target_dim': 8, 'pca_mode': 'concat'}
+S3 FasanoFranceschiniWindow                       cfg006 F1_tune=0.246 {'n_samples': 250, 'step': 250, 'alpha': 0.05, 'n_permutations': 100, 'method': 'b', 'pca_threshold': 9, 'pca_target_dim': 8, 'pca_mode': 'concat'}
+S4 FasanoFranceschiniWindow                       cfg008 F1_tune=0.777 {'n_samples': 500, 'step': 500, 'alpha': 0.05, 'n_permutations': 100, 'method': 'b', 'pca_threshold': 9, 'pca_target_dim': 8, 'pca_mode': 'concat'}
+wrote /home/sonic/ffwin_tkde_synth/synthetic/tuning/selected_offset_delta1000.json

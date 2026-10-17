@@ -1,0 +1,14 @@
+# SHA-256 of the prepared real-stream CSVs.
+# The streams themselves are third-party; see README.md for how to rebuild them.
+
+b71dd5e6f4d454bac7854e0b45617f645095f763573ba9c5b313b46cd44f14f3  INSECTS-abrupt_balanced_norm.csv  (35,617,670 bytes)
+b78f65a5a5fe2dfb045a3ac90c45872f102b34150cb1249c1f73b34032daa3b6  INSECTS-gradual_balanced_norm.csv  (16,192,128 bytes)
+33254d693bc7b43e8e942ffe50bcd07ada4b9394b7b4def69286124faeeb460a  INSECTS-incremental-abrupt_balanced_norm.csv  (53,844,156 bytes)
+228a74d8c7f56266541d178fdc77e3aad39a54572a7c3eec93596a4b592bd25f  INSECTS-incremental-reoccurring_balanced_norm.csv  (53,886,233 bytes)
+490ab37ccab47f932dcae574f530d5639b0ee305150abe75a861ea6f7a8c06ee  INSECTS-incremental_balanced_norm.csv  (38,387,988 bytes)
+4ec7531a47d0f1cd37923c4a9378ff50b504bc35ce8f53d1987130ddf7fbf63a  NOAA.csv  (790,329 bytes)
+ca627a0f7f884f22d6750174ba9aca35e681ec05338c5efb45c9fe103d348b5c  elec.csv  (3,069,604 bytes)
+2398127f88cdecfeec2574c3bb6a35dff4d87a4136ba9fcd2e0868aeea55d96d  outdoor.csv  (634,944 bytes)
+47930ae4a1f74ac78c57ccc68ae6a69c48f12ccb524e20d83ee7b1e526b8f5eb  poker-lsn.csv  (20,347,594 bytes)
+d9327d576f229fc3026a18c34ac2e214575eacfaa2e28fe49decc6a4d28c496c  powersupply.csv  (465,431 bytes)
+f3a3ec02c95332489397d82bf8906c63717540b2184fd99b62dbfee1d36139cd  rialto.csv  (12,213,875 bytes)
